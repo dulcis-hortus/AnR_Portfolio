@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# env & secrets — API 키 저장소에 올리지 말 것 (결정로그 §2)
+.env*
+config.yaml
+config.yml
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
