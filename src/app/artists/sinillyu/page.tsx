@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
 import { SITE } from '@/data/site';
 
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     title: '신인류 — EP 《구름을 빌려줘》 기획',
     description:
       '유튜브 댓글 표본 200건 분석과 공연 현장 관찰에 근거한 신인류 다음 앨범 기획.',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
 };
 
@@ -48,8 +50,39 @@ export default function Sinillyu() {
       {/* ── ① 앨범 기획: 결론 먼저 ─────────────────────────── */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Artist — 신인류</p>
-          <h1>EP 《구름을 빌려줘》</h1>
+          <p className="eyebrow">Artist</p>
+          <h1>신인류</h1>
+          <div className="verdict" style={{ margin: '24px 0 28px' }}>
+            <div className="verdict-row">
+              <span className="vk">현재 단계</span>
+              <span>
+                세 팀 중 가장 단단한 정체성. 정규 1집 콘서트 전석 매진, 평단
+                인정 확보 — 확장 국면 진입.
+              </span>
+            </div>
+            <div className="verdict-row">
+              <span className="vk">핵심 리스크</span>
+              <span>
+                음원과 라이브의 괴리, OST 이후 새 유입 채널 부재.
+              </span>
+            </div>
+            <div className="verdict-row">
+              <span className="vk">다음 수</span>
+              <span>
+                라이브를 음원의 재현이 아닌 독립 버전으로 재설계하는 EP.
+              </span>
+            </div>
+          </div>
+          <p className="dateline">
+            데이터: 2026-06 수집·집계 · 기획안 작성: 2026-06
+          </p>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <p className="section-num">① 앨범 기획</p>
+          <h2>EP 《구름을 빌려줘》</h2>
           <p className="concept-line">
             연대로 닿지 못하고 자신에게 되돌아오는 경험들을, 수치나 부족함이
             아니라 원래 잡히지 않는 것들로 바라보는 앨범.
@@ -60,13 +93,7 @@ export default function Sinillyu() {
             상황에서 출발합니다. &lsquo;상처는 너의 매력&rsquo;이라고 전환해온
             신인류의 프레임을 거쳐, 실패는 자연스러운 수용으로 이어집니다.
           </p>
-        </div>
-      </section>
-
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <p className="section-num">① 앨범 기획</p>
-          <h2>트랙 구성</h2>
+          <h3>트랙 구성</h3>
           <ol className="track-list">
             {TRACKS.map((t) => (
               <li key={t.no}>
@@ -96,7 +123,7 @@ export default function Sinillyu() {
             공식 유튜브 채널 톱레벨 댓글에서 층화 무작위로 추출한 표본
             200건(시드 고정)을 전건 수기 라벨링한 결과입니다. 댓글 작성자는
             능동적 팬 집단으로, 전체 팬층을 대표하지 않습니다. 절차 상세는{' '}
-            <a href="/method/">분석 방법</a>에 공개되어 있습니다.
+            <Link href="/method/">분석 방법</Link>에 공개되어 있습니다.
           </p>
 
           <div className="stat-grid">
@@ -251,9 +278,9 @@ export default function Sinillyu() {
             수집·표본 설계·라벨링 기준·검증 절차와 한계를 전부 공개합니다.
           </p>
           <p style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a className="btn btn-accent" href="/method/">
+            <Link className="btn btn-accent" href="/method/">
               분석 방법 보기
-            </a>
+            </Link>
             <a className="btn" href={`mailto:${SITE.email}`}>
               이메일 보내기
             </a>

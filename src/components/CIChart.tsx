@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
 
 /**
@@ -103,7 +104,7 @@ export default function CIChart() {
         <br />
         · &lsquo;통계적 확인&rsquo;은 95% 신뢰구간 하한이 50%를 넘는 경우를
         뜻합니다. 상세 절차는{' '}
-        <a href="/method/">분석 방법</a> 참고.
+        <Link href="/method/">분석 방법</Link> 참고.
       </p>
     </div>
   );

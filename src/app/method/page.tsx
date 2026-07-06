@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     title: '분석 방법 — 정지영',
     description:
       '수집·표본 설계·라벨링 기준·AI 검증 결과까지 — 팬 댓글 분석의 절차와 한계 전면 공개.',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
 };
 
@@ -67,6 +69,15 @@ export default function Method() {
             관계의 성격을 담지 않습니다. 이런 댓글은 &lsquo;무신호&rsquo;로
             따로 셉니다. 무신호가 많다는 것은 실패가 아니라, &lsquo;이 팬덤은
             사람보다 음악으로 묶여 있다&rsquo;는 하나의 발견입니다.
+          </p>
+          <h3>왜 이 다섯 팀인가</h3>
+          <p>
+            현장 교차 검증이 가능하고, 맥락을 가장 잘 아는 팀부터 방법론을
+            적용했습니다. 댓글의 미묘한 뉘앙스를 라벨링하고 그 결과를 공연장
+            관찰과 대조하려면, 활동 이력과 팬덤 맥락을 아는 팀이 판단의
+            정확도를 높입니다. 한계도 분명합니다 — 이미 알려진 팀에 방법론을
+            적용한 검증이며, 신인 발굴 능력의 증명은 이 포트폴리오의 범위
+            밖입니다.
           </p>
         </div>
       </section>
@@ -221,7 +232,7 @@ export default function Method() {
       </section>
 
       {/* 4. AI 검증 */}
-      <section className="section">
+      <section className="section" id="ai-validation">
         <div className="container">
           <h2>4. AI에게 맡기려다, 검증에서 탈락시킨 이유</h2>
           <p>
@@ -374,9 +385,9 @@ export default function Method() {
             페이지에서 볼 수 있습니다.
           </p>
           <p style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a className="btn btn-accent" href="/artists/sinillyu/">
+            <Link className="btn btn-accent" href="/artists/sinillyu/">
               신인류 — EP 기획 보기
-            </a>
+            </Link>
             <a className="btn" href={`mailto:${SITE.email}`}>
               이메일 보내기
             </a>

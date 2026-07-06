@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: SITE.title,
     description: SITE.description,
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
 };
 
@@ -56,6 +57,21 @@ export default function Home() {
           <p className="hero-story">
             요구사항을 코드로 구현하던 프론트엔드 개발자 5년 — 이제 같은
             정확함으로 아티스트와 팬 사이의 신호를 읽습니다.
+          </p>
+          <div className="numflow">
+            <span>
+              <strong>40,856</strong>건 수집
+            </span>
+            <span className="sep">→</span>
+            <span>
+              <strong>1,000</strong>건 직접 분류
+            </span>
+            <span className="sep">·</span>
+            <span>팀당 표본 200건</span>
+          </div>
+          <p className="footnote" style={{ marginTop: 12 }}>
+            AI 분류는 사전 등록한 기준으로 검증한 뒤, 미달로 탈락시켰습니다.{' '}
+            <Link href="/method/#ai-validation">검증 과정 보기</Link>
           </p>
         </div>
       </section>

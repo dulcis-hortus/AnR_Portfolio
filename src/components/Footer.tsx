@@ -6,12 +6,16 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-links">
           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-          <a href={SITE.brunch} target="_blank" rel="noopener noreferrer">
-            브런치
-          </a>
-          <a href={SITE.resumePdf} target="_blank" rel="noopener noreferrer">
-            이력서 (PDF)
-          </a>
+          {SITE.brunch && (
+            <a href={SITE.brunch} target="_blank" rel="noopener noreferrer">
+              브런치
+            </a>
+          )}
+          {SITE.resumePdf && (
+            <a href={SITE.resumePdf} target="_blank" rel="noopener noreferrer">
+              이력서 (PDF)
+            </a>
+          )}
         </div>
         <p className="footer-disclaimer">{SITE.disclaimer}</p>
       </div>

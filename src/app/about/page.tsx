@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { SITE } from '@/data/site';
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
     title: 'About — 정지영',
     description:
       '프론트엔드 개발자 5년에서 데이터·현장 검증 A&R로. 전환 스토리와 경력.',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
 };
 
@@ -96,6 +98,11 @@ export default function About() {
             데이터로 가설을 세우고, 데이터가 닿지 못하는 부분은 공연장에서
             직접 확인합니다.
           </p>
+          <p>
+            분석 대상 다섯 팀은 현장 교차 검증이 가능한, 맥락을 가장 잘 아는
+            팀부터 골랐습니다. 선정 기준과 그 한계는{' '}
+            <Link href="/method/">분석 방법</Link>에 밝혀두었습니다.
+          </p>
         </div>
       </section>
 
@@ -124,13 +131,23 @@ export default function About() {
           <p>
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
             <br />
-            <a href={SITE.brunch} target="_blank" rel="noopener noreferrer">
-              브런치에서 칼럼 읽기
-            </a>
-            <br />
-            <a href={SITE.resumePdf} target="_blank" rel="noopener noreferrer">
-              이력서 PDF 내려받기
-            </a>
+            {SITE.brunch && (
+              <>
+                <a href={SITE.brunch} target="_blank" rel="noopener noreferrer">
+                  브런치에서 칼럼 읽기
+                </a>
+                <br />
+              </>
+            )}
+            {SITE.resumePdf && (
+              <a
+                href={SITE.resumePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                이력서 PDF 내려받기
+              </a>
+            )}
           </p>
         </div>
       </section>

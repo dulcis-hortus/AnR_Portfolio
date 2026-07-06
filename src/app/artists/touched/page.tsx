@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
 import { SITE } from '@/data/site';
 
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     title: '터치드 — 정규 1집 《역광》 기획',
     description:
       '유튜브 댓글 표본 200건 분석에 근거한 터치드 첫 정규 앨범 기획.',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
 };
 
@@ -40,8 +42,42 @@ export default function Touched() {
       {/* ── ① 앨범 기획: 결론 먼저 ─────────────────────────── */}
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Artist — 터치드</p>
-          <h1>정규 1집 《역광 (逆光)》</h1>
+          <p className="eyebrow">Artist</p>
+          <h1>터치드</h1>
+          <div className="verdict" style={{ margin: '24px 0 28px' }}>
+            <div className="verdict-row">
+              <span className="vk">현재 단계</span>
+              <span>
+                라이브 경쟁력은 확실한데 정규 앨범이 없는 분기점. 첫 정규는 한
+                번뿐인 서사적 이벤트.
+              </span>
+            </div>
+            <div className="verdict-row">
+              <span className="vk">핵심 리스크</span>
+              <span>
+                &lsquo;터치드란 무엇인가&rsquo;에 대한 미답. 방향성 혼란이 첫
+                정규에 그대로 담기면 천장이 공식화됨.
+              </span>
+            </div>
+            <div className="verdict-row">
+              <span className="vk">다음 수</span>
+              <span>
+                멤버들의 원점에서 출발하는 《역광》. 1막 타이틀이 스트리밍
+                진입문 역할.
+              </span>
+            </div>
+          </div>
+          <p className="dateline">
+            데이터: 2026-06 수집·집계 · 기획안 작성: 2026-06 · 이후 신곡·공연
+            발표에 따라 기획 개정 예정
+          </p>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <p className="section-num">① 앨범 기획</p>
+          <h2>정규 1집 《역광 (逆光)》</h2>
           <p className="concept-line">
             성공이라는 스포트라이트를 향해 달리다, 그 빛 안에서 아무것도
             보이지 않게 된 사람들이 빛을 등지고 처음으로 자기 자신을 보게 되는
@@ -54,13 +90,7 @@ export default function Touched() {
             합니다. 겉은 명품처럼 정돈되어 있고, 안은 지금껏 없던 균열을
             담습니다.
           </p>
-        </div>
-      </section>
-
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <p className="section-num">① 앨범 기획</p>
-          <h2>5막 서사 구조</h2>
+          <h3>5막 서사 구조</h3>
           <ol className="track-list">
             {ACTS.map((a) => (
               <li key={a.no}>
@@ -94,7 +124,7 @@ export default function Touched() {
             공식 유튜브 채널 톱레벨 댓글에서 층화 무작위로 추출한 표본
             200건(시드 고정)을 전건 수기 라벨링한 결과입니다. 댓글 작성자는
             능동적 팬 집단으로, 전체 팬층을 대표하지 않습니다. 절차 상세는{' '}
-            <a href="/method/">분석 방법</a>에 공개되어 있습니다.
+            <Link href="/method/">분석 방법</Link>에 공개되어 있습니다.
           </p>
 
           <div className="stat-grid">
@@ -209,9 +239,9 @@ export default function Touched() {
             수집·표본 설계·라벨링 기준·검증 절차와 한계를 전부 공개합니다.
           </p>
           <p style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a className="btn btn-accent" href="/method/">
+            <Link className="btn btn-accent" href="/method/">
               분석 방법 보기
-            </a>
+            </Link>
             <a className="btn" href={`mailto:${SITE.email}`}>
               이메일 보내기
             </a>

@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     title: SITE.title,
     description: SITE.description,
     locale: 'ko_KR',
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
 };
 
