@@ -11,7 +11,7 @@ export default function Nav() {
     <header className="nav">
       <div className="nav-inner">
         <Link href="/" className="nav-logo" onClick={() => setOpen(false)}>
-          정지영
+          정지영<span className="nav-logo-dot">.</span>
         </Link>
         <nav className="nav-links" aria-label="주 메뉴">
           <div className={open ? 'nav-dropdown open' : 'nav-dropdown'}>
@@ -21,7 +21,7 @@ export default function Nav() {
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
-              아티스트 {open ? '▴' : '▾'}
+              가상 앨범 기획 {open ? '▴' : '▾'}
             </button>
             <div className="nav-dropdown-menu">
               {ARTISTS.map((a) => (
@@ -30,14 +30,11 @@ export default function Nav() {
                   href={`/artists/${a.slug}/`}
                   onClick={() => setOpen(false)}
                 >
-                  {a.name}
+                  {a.album}
                 </Link>
               ))}
             </div>
           </div>
-          <Link href="/projects/" onClick={() => setOpen(false)}>
-            프로젝트
-          </Link>
           <Link href="/method/" onClick={() => setOpen(false)}>
             분석 방법
           </Link>

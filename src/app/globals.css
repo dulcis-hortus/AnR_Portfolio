@@ -107,11 +107,18 @@ a {
   height: 60px;
 }
 
+/* 로고 워드마크: 시안 B — 세리프 + 앰버 마침표 (v3.1) */
 .nav-logo {
   font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 17px;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.01em;
   text-decoration: none;
+}
+
+.nav-logo-dot {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .nav-links {
@@ -153,11 +160,17 @@ a {
   top: 100%;
   left: -14px;
   padding: 8px 0;
-  min-width: 130px;
+  min-width: 240px;
+  max-width: min(340px, calc(100vw - 100px));
   background: var(--bg-raised);
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 6px 20px rgba(33, 29, 25, 0.08);
+}
+
+.nav-dropdown-menu a {
+  white-space: normal; /* 산출물명이 길어 줄바꿈 허용 (모바일) */
+  line-height: 1.5;
 }
 
 /* 클릭 토글(터치 기기 필수) + 데스크톱 호버 보조 */
@@ -828,6 +841,16 @@ details.more .more-body strong {
 
   .nav-inner {
     padding: 0 14px;
+  }
+
+  /* 모바일: 드롭다운을 화면 폭 기준으로 고정 (긴 산출물명 수용) */
+  .nav-dropdown-menu {
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    top: 60px;
+    max-width: none;
+    min-width: 0;
   }
 
   .timeline li {

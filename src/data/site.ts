@@ -14,8 +14,13 @@ export const SITE = {
     '본 사이트의 분석은 공개 데이터에 기반한 비공식 분석이며, 아티스트·소속사와 무관합니다.',
 };
 
+// 네비 드롭다운은 산출물명(앨범 기획안) 기준으로 표기 (결정로그 v3.1)
 export const ARTISTS = [
-  { slug: 'touched', name: '터치드' },
-  { slug: 'eumyul', name: '음율' },
-  { slug: 'sinillyu', name: '신인류' },
+  { slug: 'sinillyu', name: '신인류', album: '신인류 — EP 《구름을 빌려줘》' },
+  { slug: 'touched', name: '터치드', album: '터치드 — 정규 1집 《역광》' },
+  {
+    slug: 'eumyul',
+    name: '음율',
+    album: '음율 — 정규 3집 《매순간 그냥 그러고 싶었어》',
+  },
 ] as const;
