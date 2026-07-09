@@ -19,12 +19,17 @@ const T = report['팀별']['신인류'];
 const R = T.친구형_비율;
 const QUOTES = report['대표댓글']['신인류'];
 
-const TRACKS = [
+const TRACKS: {
+  no: string;
+  title: string;
+  desc: string;
+  badge?: string;
+}[] = [
   { no: '01', title: '늦음', desc: '구름이 필요했던 순간을 너무 늦게 알아차린 것.' },
   { no: '02', title: '변해버림', desc: '내가 가졌던 구름이 달라져 있는 것. 단지 시간이 흘러 자연스럽게 변한 것일 뿐.' },
   { no: '03', title: '전달되지 않음', desc: '다른 이에게 구름을 빌려달라고 했는데 닿지 않은 것.' },
   { no: '04', title: '잊혀짐', desc: '전달되지 않은 것이 흩어지는 것.' },
-  { no: '05', title: '반복', desc: '그런데 또 하는 것. 구름을 또 빌려달라고 하는 것.' },
+  { no: '05', title: '반복', badge: '타이틀', desc: '그런데 또 하는 것. 구름을 또 빌려달라고 하는 것.' },
 ];
 
 // 매진 범례(결정로그 §3): ● 매진 공지 / ○ 정보 없음
@@ -56,8 +61,9 @@ export default function Sinillyu() {
             <div className="verdict-row">
               <span className="vk">현재 단계</span>
               <span>
-                세 팀 중 가장 단단한 정체성. 정규 1집 콘서트 전석 매진, 평단
-                인정 확보 — 확장 국면 진입.
+                세 팀 중 가장 단단한 정체성. 정규 1집 콘서트 전석 매진,
+                한국대중음악상 최우수 얼터너티브 록 음반 수상(2026) — 확장
+                국면 진입.
               </span>
             </div>
             <div className="verdict-row">
@@ -98,11 +104,21 @@ export default function Sinillyu() {
             {TRACKS.map((t) => (
               <li key={t.no}>
                 <span className="no">{t.no}</span>
-                <span className="track-title">{t.title}</span>
+                <span className="track-title">
+                  {t.title}
+                  {t.badge && <span className="track-badge">{t.badge}</span>}
+                </span>
                 <span className="track-desc">{t.desc}</span>
               </li>
             ))}
           </ol>
+          <p>
+            타이틀은 5번 &lsquo;반복&rsquo;입니다. 이 앨범은 도움 요청의
+            실패를 수치가 아닌 자연스러운 수용으로 잇는 이야기인데, 그 수용을
+            증명하는 행위가 &lsquo;그럼에도 또 빌려달라고 하는 것&rsquo;입니다.
+            앨범의 결론이 담긴 곡이 앨범의 얼굴이 되는 구조로, 곡 제목을 앨범
+            제목과 겹쳐 읽어도 무방합니다.
+          </p>
           <h3>왜 정규 2집이 아니라 EP인가</h3>
           <p>
             신인류의 실질적 과제는 스튜디오에서 정교하게 설계된 사운드를
@@ -265,6 +281,31 @@ export default function Sinillyu() {
             <span className="tag-obs">관찰</span>
             현 체제 기준 공연 규모가 300석에서 450석으로 커졌고, 정규 1집
             콘서트는 전석 매진이 공지되었습니다.
+          </p>
+          <p>
+            2026년 한국대중음악상 최우수 얼터너티브 록 음반을 수상하며 평단의
+            언어도 확보했습니다. 팬덤 밀도(전석 매진)와 비평적 인정이 같은
+            시기에 겹친 상태 — 확장 국면에 진입할 조건은 갖춰졌습니다.
+          </p>
+          <p>
+            <span className="tag-obs">관찰</span>
+            Spotify 월간 청취자는 156,196명입니다(2026-06 기준). 450석 매진과
+            견주면, 스트리밍에서 도달한 리스너의 극히 일부만이 공연장에
+            도착해 있습니다.
+          </p>
+          <p>
+            <span className="tag-interp">해석</span>
+            이 간극은 약점이 아니라 여백입니다. 아직 라이브로 전환되지 않은
+            잠재 관객이 그만큼 크다는 뜻이고, 전환을 가로막는 병목이 위에서
+            확인한 음원–라이브 괴리입니다. 라이브를 독립 버전으로 재설계하는
+            EP가 이 병목을 여는 열쇠라는 것이 본 기획의 핵심 가설입니다.
+          </p>
+          <p>
+            신인류는 갈 곳이 명확한 팀입니다. 다만 그 길을 걸어갈 몸이 아직
+            다 따라오지 못했습니다. A&amp;R로서의 첫 개입은 거창한 것이
+            아니라 라이브 공연 모니터링 — 무대 위 퍼포먼스와 관객 반응을
+            회차별로 관찰해, 라이브 재설계의 근거를 데이터로 쌓는 일입니다.
+            항목 ③은 그 첫 번째 기록입니다.
           </p>
         </div>
       </section>
