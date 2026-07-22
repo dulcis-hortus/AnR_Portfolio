@@ -1,0 +1,844 @@
+/* ═══════════════════════════════════════════════════════════════
+   앨범 기획 사이트 — 시스템 골격 CSS (전 앨범 공통, 앨범 무관)
+
+   시스템/인스턴스 분리 (빌드 인수인계 §3-9):
+   - 이 파일에는 앨범 고유 값이 없다. 앨범 색은 인스턴스 페이지가
+     .album-scope 래퍼에 --album 변수 하나로 주입한다.
+   - 앨범 색이 쓰이는 자리는 정본 §4 역할 목록이 전부:
+     섹션 번호 · 히어로 부제 · post-hoc 칩 · 강조 밴드 ·
+     본문 링크·앵커 · 층3 취소선 · 재채용 배지
+   - 전 페이지 밝은 지면, 모션 전면 부재(스크롤스파이 상태 변화만).
+   - 기존 사이트 토큰(--ink, --line 등)과 이름이 겹치지만
+     .album-scope 하위에서만 재정의되므로 다른 페이지에 영향 없음.
+   ═══════════════════════════════════════════════════════════════ */
+
+.album-scope {
+  /* 색 — 중립 골격 (시스템 고정) */
+  --paper: #f4f2ed;
+  --ink: #211f1c;
+  --soft: #6b675e;
+  --line: #c9c5bb;
+  --card: #fbfaf7;
+
+  /* 서체 3역할 (혼용 금지) */
+  --display: 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
+  --body: 'Pretendard Variable', Pretendard, -apple-system,
+    BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+  --data: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.album-scope p {
+  margin: 0 0 16px;
+}
+
+/* ── 전역 고정 헤더: 가상 기획 스트립 + 로고 + 스크롤스파이 + 부속 ── */
+.alb-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.alb-strip {
+  margin: 0;
+  padding: 7px 16px;
+  text-align: center;
+  font-family: var(--data);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.alb-strip-short {
+  display: none;
+}
+
+.alb-bar {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 로고 = 기존 사이트 워드마크 재사용. 마침표는 사이트 액센트색
+   (#b3591f — 앨범 색 아님. 앨범 색 역할 목록에 로고는 없음) */
+.alb-logo {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.alb-logo-dot {
+  color: #b3591f;
+  font-weight: 700;
+}
+
+.alb-spy {
+  display: flex;
+  gap: 18px;
+  flex: 1;
+  justify-content: center;
+  font-family: var(--data);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+.alb-spy a {
+  color: var(--soft);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 3px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.alb-spy a.on {
+  color: var(--ink);
+  border-bottom-color: var(--album);
+}
+
+.alb-spy-no {
+  color: var(--album);
+}
+
+.alb-aux {
+  display: flex;
+  gap: 16px;
+  font-family: var(--data);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+.alb-aux a {
+  color: var(--soft);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.alb-aux a:hover,
+.alb-spy a:hover {
+  color: var(--ink);
+}
+
+/* 모바일 내비: 현재 섹션 인디케이터 + 탭 시 전체 목차 시트 */
+.alb-cur {
+  all: unset;
+  display: none;
+  cursor: pointer;
+  margin-left: auto;
+  font-family: var(--data);
+  font-size: 12px;
+  color: var(--ink);
+  padding: 6px 0;
+}
+
+.alb-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 8px 20px 16px;
+}
+
+.alb-sheet a {
+  display: block;
+  padding: 9px 4px;
+  font-size: 15px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.alb-sheet-aux {
+  display: flex;
+  gap: 20px;
+  padding-top: 12px;
+}
+
+.alb-sheet-aux a {
+  border-bottom: none;
+  font-family: var(--data);
+  font-size: 12px;
+  color: var(--soft);
+  padding: 4px 0;
+}
+
+/* ── 층1: 히어로 위계 4단 ─────────────────────────────────────── */
+.alb-hero {
+  padding: 88px 20px 48px;
+  text-align: center;
+}
+
+.alb-eyebrow {
+  font-family: var(--data);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--soft);
+  margin: 0;
+}
+
+.alb-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(42px, 8vw, 68px);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin: 14px 0 6px;
+}
+
+.alb-subtitle {
+  font-family: var(--data);
+  font-size: 13px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--album);
+  margin: 0;
+}
+
+.alb-concept {
+  font-size: 17px;
+  font-weight: 500;
+  margin: 28px 0 0;
+}
+
+/* ── 층1: 요약 박스 · 핵심 숫자 · 트랙리스트 · 갱신 ───────────── */
+.alb-l1 {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+.alb-verdict {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.alb-verdict-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 14px;
+  align-items: baseline;
+  font-size: 14.5px;
+}
+
+.alb-vk {
+  font-family: var(--data);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--soft);
+  white-space: nowrap;
+}
+
+.alb-nums {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.alb-num {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 14px 14px;
+  text-align: center;
+}
+
+.alb-num .v {
+  display: block;
+  font-family: var(--data);
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.alb-num .k {
+  display: block;
+  font-size: 12.5px;
+  color: var(--soft);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.alb-tracks {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, auto);
+  grid-auto-flow: column;
+  gap: 0 36px;
+}
+
+.alb-tracks li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 7px 2px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.alb-tracks .no {
+  font-family: var(--data);
+  font-size: 11px;
+  color: var(--soft);
+  flex: 0 0 20px;
+}
+
+.alb-wip {
+  font-family: var(--data);
+  font-size: 10px;
+  color: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0 5px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+.alb-update {
+  font-family: var(--data);
+  font-size: 11.5px;
+  color: var(--soft);
+  margin: 28px 0 0;
+  line-height: 1.7;
+}
+
+.alb-diff {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14.5px;
+  color: var(--album);
+}
+
+/* ── 층2: 섹션 골격 (sticky 거터 + 본문 640) ─────────────────── */
+.alb-sec {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 640px);
+  gap: 36px;
+  justify-content: center;
+  padding: 64px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.alb-sec--wide {
+  grid-template-columns: 200px minmax(0, 960px);
+}
+
+.alb-gutter {
+  position: sticky;
+  top: 104px;
+  align-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.alb-sec-no {
+  flex: none;
+  font-family: var(--data);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1;
+  color: var(--album);
+}
+
+.alb-sec-title {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-align: right;
+}
+
+.alb-body {
+  min-width: 0;
+}
+
+.alb-body a {
+  color: var(--album);
+  text-underline-offset: 2px;
+}
+
+.alb-body h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 16.5px;
+  margin: 32px 0 10px;
+}
+
+/* 진단형 항목 리스트 */
+.alb-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.alb-items > li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.alb-items > li:first-child {
+  padding-top: 0;
+}
+
+.alb-items b {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* 질문 인용(표제 성격) */
+.alb-q {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.7;
+  border-left: 2px solid var(--ink);
+  padding-left: 18px;
+  margin: 0 0 24px;
+}
+
+/* 인용 카드 — 가사·발언 / 댓글은 취지 요약형만 */
+.alb-quote {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin: 0 0 16px;
+}
+
+.alb-quote .src {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--data);
+  font-size: 11px;
+  color: var(--soft);
+}
+
+/* 각주 */
+.alb-fn {
+  font-size: 12.5px;
+  color: var(--soft);
+  line-height: 1.65;
+}
+
+/* ── 칩 3종 (인라인, 데이터체) ────────────────────────────────── */
+.alb-chip {
+  display: inline-block;
+  font-family: var(--data);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 1.5px 7px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+
+.alb-chip--obs {
+  background: #e4e0d6;
+  color: #57534a;
+  border: 1px solid var(--line);
+}
+
+.alb-chip--int {
+  background: #57534a;
+  color: var(--paper);
+  border: 1px solid #57534a;
+}
+
+.alb-chip--ph {
+  background: transparent;
+  color: var(--album);
+  border: 1px dashed var(--album);
+}
+
+/* ── 표 (러닝오더 등 일반) — 좌우 스크롤 금지 ─────────────────── */
+.alb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 0 0 8px;
+}
+
+.alb-table th,
+.alb-table td {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.alb-td-center {
+  text-align: center;
+}
+
+.alb-table th {
+  font-family: var(--data);
+  font-size: 11px;
+  font-weight: 500;
+  background: #e7e4dc;
+}
+
+/* ── 비교표(사양서형): 데스크톱 가로표 ↔ 모바일 카드 아코디언 ── */
+.alb-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.alb-spec-table th,
+.alb-spec-table td {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.alb-spec-table thead th {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14px;
+  background: #e7e4dc;
+  position: sticky;
+  top: 88px; /* 고정 헤더 아래 */
+  z-index: 1;
+}
+
+.alb-spec-table tbody th {
+  font-family: var(--data);
+  font-weight: 500;
+  font-size: 11px;
+  width: 92px;
+  background: #e7e4dc;
+  position: sticky;
+  left: 0;
+}
+
+/* 금지 조항·반려 기준 강조 밴드 — 앨범 색 저농도 배경 + 텍스트 */
+.alb-spec-table tr.alb-band th,
+.alb-spec-table tr.alb-band td,
+.alb-spec-cards .alb-band {
+  background: color-mix(in srgb, var(--album) 8%, var(--card));
+  color: var(--album);
+}
+
+.alb-spec-cards {
+  display: none;
+}
+
+/* ── 시각 아크 스트립 (가로 3단 고정) ────────────────────────── */
+.alb-arcstrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.alb-arcstrip .cell {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-align: center;
+  padding: 14px 8px;
+}
+
+.alb-arcstrip .lg {
+  display: block;
+  font-family: var(--data);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: var(--soft);
+  margin-bottom: 4px;
+}
+
+.alb-arcstrip .nm {
+  font-weight: 600;
+  font-size: 13.5px;
+}
+
+/* ── 층3: 기각 원장 + 없는 것 (밝은 지면, 2px 잉크 구분선) ───── */
+.alb-l3 {
+  border-top: 2px solid var(--ink);
+  margin-top: 72px;
+  padding: 56px 20px 72px;
+}
+
+.alb-l3-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.alb-l3 .lbl {
+  font-family: var(--data);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  color: var(--soft);
+  margin: 0;
+}
+
+.alb-l3 h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 6px 0 24px;
+}
+
+.alb-ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.alb-ledger li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+
+/* 취소선 = 앨범 색 1.5px, 글자 = 잉크(글자가 주인공) */
+.alb-ledger s {
+  color: var(--ink);
+  text-decoration-line: line-through;
+  text-decoration-color: var(--album);
+  text-decoration-thickness: 1.5px;
+}
+
+/* 기각 사유 칸 — 마크업 자리만 확보(공란 렌더링) */
+.alb-ledger .why {
+  flex: 1;
+  min-width: 32px;
+  min-height: 1em;
+  color: var(--soft);
+  font-size: 13px;
+}
+
+.alb-rebadge {
+  font-family: var(--data);
+  font-size: 10px;
+  background: var(--album);
+  color: var(--paper);
+  padding: 1.5px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.alb-ledger a {
+  color: var(--album);
+  font-size: 13.5px;
+}
+
+.alb-none {
+  margin-top: 60px;
+}
+
+.alb-none ul {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.alb-none li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+}
+
+.alb-none li b {
+  display: block;
+}
+
+.alb-none li span {
+  color: var(--soft);
+  font-size: 13.5px;
+}
+
+.alb-none li a {
+  color: var(--album);
+}
+
+.alb-none .closing {
+  margin: 20px 0 0;
+  font-size: 14.5px;
+}
+
+/* 가상 기획 문구 푸터 병기 */
+.alb-foot {
+  border-top: 1px solid var(--line);
+  padding: 20px;
+  text-align: center;
+  font-family: var(--data);
+  font-size: 11px;
+  color: var(--soft);
+}
+
+/* ── 모바일 규칙 ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .alb-sec,
+  .alb-sec--wide {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 48px 20px;
+  }
+
+  .alb-gutter {
+    position: static;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .alb-sec-title {
+    text-align: left;
+  }
+}
+
+@media (max-width: 760px) {
+  .alb-spy,
+  .alb-aux {
+    display: none;
+  }
+
+  .alb-cur {
+    display: inline-block;
+  }
+
+  .alb-strip-full {
+    display: none;
+  }
+
+  .alb-strip-short {
+    display: inline;
+  }
+
+  .alb-nums {
+    grid-template-columns: 1fr;
+  }
+
+  .alb-tracks {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+
+  .alb-verdict-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  /* 비교표 → 카드 아코디언 전환 (좌우 스크롤 표 금지) */
+  .alb-spec-table {
+    display: none;
+  }
+
+  .alb-spec-cards {
+    display: block;
+  }
+
+  .alb-spec-cards details {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .alb-spec-cards summary {
+    cursor: pointer;
+    padding: 12px 16px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 14.5px;
+    list-style: none;
+  }
+
+  .alb-spec-cards summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .alb-spec-cards summary::before {
+    content: '▸ ';
+    font-family: var(--data);
+    color: var(--soft);
+  }
+
+  .alb-spec-cards details[open] summary::before {
+    content: '▾ ';
+  }
+
+  .alb-spec-cards dl {
+    margin: 0;
+    padding: 2px 16px 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .alb-spec-cards dl > div {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .alb-spec-cards dl > div:last-child {
+    border-bottom: none;
+  }
+
+  .alb-spec-cards dl > div.alb-band {
+    padding: 8px;
+    border-radius: 4px;
+    border-bottom: none;
+    margin: 4px 0;
+  }
+
+  .alb-spec-cards dt {
+    font-family: var(--data);
+    font-size: 10.5px;
+    color: var(--soft);
+    margin-bottom: 2px;
+  }
+
+  .alb-spec-cards dd {
+    margin: 0;
+    font-size: 13.5px;
+  }
+
+  .alb-table {
+    font-size: 12.5px;
+  }
+
+  .alb-table th,
+  .alb-table td {
+    padding: 7px 8px;
+  }
+}

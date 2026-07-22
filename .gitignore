@@ -5,6 +5,9 @@
 /.next/
 /out/
 
+# 내부 참조 문서 — 배포·공개 금지
+/_build-docs/
+
 # misc
 .DS_Store
 *.pem

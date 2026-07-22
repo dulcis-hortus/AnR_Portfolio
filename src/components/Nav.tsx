@@ -1,11 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { ARTISTS } from '@/data/site';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // 앨범 원페이지(터치드 《역광》 및 부속)는 전용 헤더(AlbumHeader)를
+  // 쓰므로 전역 내비를 렌더링하지 않는다. 복귀 경로는 앨범 헤더 로고.
+  if (pathname?.startsWith('/artists/touched')) {
+    return null;
+  }
 
   return (
     <header className="nav">
