@@ -7,7 +7,7 @@ import type { SpecColumn, SpecRow } from '@/components/album/SpecMatrix';
 export const ALBUM_COLOR = '#a3490f'; // 화상 엠버 (지면 위 대비 5.34:1, AA)
 
 export const STRIP_FULL = '비공식 가상 프로젝트이며 아티스트·소속사와 무관합니다.';
-export const STRIP_SHORT = '비공식 가상 프로젝트 · 아티스트·소속사와 무관';
+export const STRIP_SHORT = '비공식 가상 프로젝트로 아티스트·소속사와 무관합니다';
 
 // 층2 섹션 목차 (8섹션, 순서 고정). nav = 스크롤스파이 축약, title = 본문 표제.
 export const SECTIONS: (AlbumNavSection & { title: string })[] = [

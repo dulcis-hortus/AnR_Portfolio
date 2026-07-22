@@ -13,7 +13,7 @@ export default function AlbumSection({
 }: {
   id: string;
   no: string;
-  title: string;
+  title: ReactNode;
   wide?: boolean;
   children: ReactNode;
 }) {

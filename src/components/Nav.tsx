@@ -19,7 +19,7 @@ export default function Nav() {
     <header className="nav">
       <div className="nav-inner">
         <Link href="/" className="nav-logo" onClick={() => setOpen(false)}>
-          정지영<span className="nav-logo-dot">.</span>
+          A&amp;R 정지영<span className="nav-logo-dot">.</span>
         </Link>
         <nav className="nav-links" aria-label="주 메뉴">
           <div className={open ? 'nav-dropdown open' : 'nav-dropdown'}>

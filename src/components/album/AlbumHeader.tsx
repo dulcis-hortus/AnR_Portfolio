@@ -54,35 +54,46 @@ export default function AlbumHeader({
       </p>
       <div className="alb-bar">
         <Link href="/" className="alb-logo">
-          정지영<span className="alb-logo-dot">.</span>
+          A&amp;R 정지영<span className="alb-logo-dot">.</span>
         </Link>
-        <nav className="alb-spy" aria-label="본문 섹션">
-          {sections.map((s) => (
-            <a
-              key={s.id}
-              href={`#${s.id}`}
-              className={active === s.id ? 'on' : undefined}
-            >
-              <span className="alb-spy-no">{s.no}</span> {s.nav}
-            </a>
-          ))}
-        </nav>
-        <nav className="alb-aux" aria-label="부속 페이지">
+        {sections.length > 0 && (
+          <nav className="alb-spy" aria-label="본문 섹션">
+            {sections.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                className={active === s.id ? 'on' : undefined}
+              >
+                <span className="alb-spy-no">{s.no}</span> {s.nav}
+              </a>
+            ))}
+          </nav>
+        )}
+        <nav
+          className={
+            sections.length > 0 ? 'alb-aux' : 'alb-aux alb-aux--solo'
+          }
+          aria-label="부속 페이지"
+          style={sections.length === 0 ? { marginLeft: 'auto' } : undefined}
+        >
           {deepLinks.map((l) => (
             <Link key={l.href} href={l.href}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <button
-          type="button"
-          className="alb-cur"
-          aria-expanded={sheet}
-          aria-label="섹션 목차"
-          onClick={() => setSheet((v) => !v)}
-        >
-          {current ? `${current.no} ${current.nav}` : '목차'} {sheet ? '▴' : '▾'}
-        </button>
+        {sections.length > 0 && (
+          <button
+            type="button"
+            className="alb-cur"
+            aria-expanded={sheet}
+            aria-label="섹션 목차"
+            onClick={() => setSheet((v) => !v)}
+          >
+            {current ? `${current.no} ${current.nav}` : '목차'}{' '}
+            {sheet ? '▴' : '▾'}
+          </button>
+        )}
       </div>
       {sheet && (
         <nav className="alb-sheet" aria-label="전체 목차">

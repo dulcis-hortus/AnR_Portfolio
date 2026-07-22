@@ -574,9 +574,6 @@ export default function Touched() {
           </div>
         </div>
       </section>
-
-      {/* 가상 기획 문구 푸터 병기 (전역 푸터와 별도) */}
-      <p className="alb-foot">{STRIP_FULL}</p>
     </div>
   );
 }
