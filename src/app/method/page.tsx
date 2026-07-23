@@ -53,12 +53,29 @@ export default function Method() {
             원칙 세 가지 — 추측 없이 실제 데이터만. 관찰과 해석의 구분. 표본
             한계의 공개.
           </p>
+          <p style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <a className="btn" href="#fan-type">
+              팬 유형 분석 ↓
+            </a>
+            <a className="btn" href="#inflow">
+              유입 창 분석 ↓
+            </a>
+          </p>
         </div>
       </section>
 
       {/* 무엇을 분석했나 */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
+          {/* ── 섹션 1: 팬 유형 분석 (기존 1~6절) ── */}
+          <div id="fan-type" style={{ scrollMarginTop: 72, marginBottom: 44 }}>
+            <p className="eyebrow">Section 1</p>
+            <h2 style={{ fontSize: 30, marginTop: 0 }}>팬 유형 분석</h2>
+            <p style={{ color: 'var(--ink-soft)', marginBottom: 0 }}>
+              팬이 남긴 댓글이 어떤 관계의 언어인지 — 친구형/우상형 분류의
+              절차와 결과입니다. (1~6절)
+            </p>
+          </div>
           <h2>무엇을 분석했나</h2>
           <p>
             팬이 아티스트에게 남긴 댓글이 <strong>어떤 관계의 언어</strong>인지를
@@ -380,6 +397,79 @@ export default function Method() {
               </p>
             </div>
           </details>
+        </div>
+      </section>
+
+      {/* ── 섹션 2: 유입 창 분석 (신설) ── */}
+      <section className="section" id="inflow" style={{ scrollMarginTop: 72 }}>
+        <div className="container">
+          <p className="eyebrow">Section 2</p>
+          <h2 style={{ fontSize: 30, marginTop: 0 }}>유입 창 분석</h2>
+          <p>
+            댓글에서 &lsquo;이 팀을 어떻게 알게 됐는지&rsquo;를 자발적으로
+            밝힌 경우를 찾아, 유입 경로별로 분류했습니다. 판정 기준은 결과를
+            보기 전에 문서로 확정했습니다(사전 등록). AI에게 판정을 맡기는
+            안은 사전 등록한 검증 게이트를 넘지 못해 채택하지 않았고, AI는
+            유입 언급 후보를 골라내는 <strong>스크리너(1차 필터)</strong>로만
+            활용했습니다. 판정·분류는 <strong>전량 사람이 직접</strong>{' '}
+            했습니다. 스크리너가 놓쳤을 수 있는 몫은 음성 표본 감사로 실측해
+            공개합니다.
+          </p>
+          <details className="more">
+            <summary>
+              더보기 — 공통 절차 상세 (스크리너 → 수기 판정 → 음성 더미 감사
+              → 스트레스 테스트)
+            </summary>
+            <div className="more-body">
+              <p>
+                <strong>스크리너 (1차 필터):</strong> AI가 분석 모집단의 댓글
+                전체를 한 건씩 통과시키며 유입 언급일 가능성이 있는 후보만
+                골라냅니다 — 있음/없음의 이진 탐지이며, 놓침을 줄이는 방향을
+                우선하도록 지시. 전 댓글 처리 여부는 커버리지로
+                검증합니다(누락·중복·파싱 실패 0). 판정 권한은 없고 후보
+                축소만 담당합니다.
+              </p>
+              <p>
+                <strong>수기 판정:</strong> 스크리너를 통과한 후보 전건을
+                판정 기준 문서 criteria v1.3(판정 원칙 F5~F9)에 따라 사람이
+                직접 판정합니다. 후보에는 유입 언급이 아닌 오탐이 섞여 있어
+                이를 걸러내고, 유입으로 판정된 건에만 7종 경로 카테고리를
+                부여합니다.
+              </p>
+              <p>
+                <strong>음성 더미 감사:</strong> 스크리너가
+                &lsquo;없음&rsquo;으로 거른 댓글에서 무작위 표본(팀당 500건,
+                난수 시드 기록)을 뽑아 전건 사람이 재검합니다 — 스크리너가
+                실제로 놓친 비율을 실측하는 절차입니다.
+              </p>
+              <p>
+                <strong>스트레스 테스트:</strong> 실측된 놓침을 전체 규모로
+                외삽하고, 그 놓침이 결론에 가장 불리한 방향으로 몰렸다고
+                가정해도 결론이 유지되는지 확인합니다.
+                결론의 강건성은 팀마다 다르다 — 놓침 최악 가정에도 유지되는
+                결론과, 감사에서 관측된 놓침 분포와 일관하다는 조건 하에
+                성립하는 결론을 구분해 표기한다.
+              </p>
+              <p>
+                <strong>재현성 기록:</strong> 스크리너는 챗 세션 실행,
+                temperature 미제어 — 사전 등록의 temperature=0 조항을
+                정정한다. 스크리너 표본 검증은 Claude Sonnet 세션, 전수
+                실행은 Claude Opus 4.8 세션. 검증 모델과 실행 모델이 다르므로
+                표본 검증 수치는 실행 성능의 보증이 아니며, 전수 실행의 실효
+                성능은 음성 더미 감사로 실측했다.
+              </p>
+            </div>
+          </details>
+          <p className="footnote">
+            ※ 유입 분석은 표본 기반 팀(개수만 표기)과 전수 기반 팀이 섞여
+            있다. 전수 분석은 기획 전제 검증이라는 구체 목적이 있던
+            팀(음율·터치드)에 수행했다.
+          </p>
+          <p className="footnote">
+            ※ 유입 절차는 나중에 확립되어 감사 장치가 더 많다. 관계유형은
+            무작위 표본 전건을 사람이 판독해 탐지 누락 개념이 없는 구조이며,
+            두 절차의 차이는 시점과 과업 성격에서 온다.
+          </p>
         </div>
       </section>
 
