@@ -66,22 +66,22 @@ export default function Touched() {
           <div className="alb-verdict-row">
             <span className="alb-vk">현재 단계</span>
             <span>
-              라이브 경쟁력은 확증되었으나(유입 분석) 팬덤 확장이 정체된
-              분기점. 첫 정규 앨범은 한 번뿐인 서사적 이벤트.
+              라이브에서 팬이 시작되는 팀 — 유입 분석으로 확인된 가장 확실한
+              자산. 첫 정규 앨범은 한 번뿐인 서사적 이벤트.
             </span>
           </div>
           <div className="alb-verdict-row">
-            <span className="alb-vk">핵심 리스크</span>
+            <span className="alb-vk">핵심 질문</span>
             <span>
-              방향성 혼란이 명확한 의도 없이 첫 정규에 담기면, 팀의 한계가
-              공식화됨.
+              무대를 한 번도 본 적 없는 사람이, 이 앨범만 듣고 다음 공연의
+              티켓을 사게 할 수 있는가.
             </span>
           </div>
           <div className="alb-verdict-row">
             <span className="alb-vk">제안</span>
             <span>
-              팀이 실제로 소유한 어둠을 하나의 선명한 서사로 세운 정규 1집
-              설계(《역광》). 이를 통해 음원 유입을 늘리고, 그 유입을 최대
+              밴드의 지향을 교정하지 않고 그대로 정렬한 정규 1집
+              설계(《역광》). 음원을 통해 새 유입을 만들고, 그 유입을 최대
               자산인 라이브로 되돌린다.
             </span>
           </div>
@@ -100,11 +100,22 @@ export default function Touched() {
           </div>
           <div className="alb-num">
             <span className="v">12트랙</span>
-            <span className="k">선공개 8곡 + 신곡 4곡(가제)</span>
+            <span className="k">선공개 8곡 + 제안 4곡(가제)</span>
           </div>
         </div>
 
-        <ol className="alb-tracks">
+        <h3
+          style={{
+            fontFamily: 'var(--display)',
+            fontWeight: 600,
+            fontSize: 16.5,
+            letterSpacing: '-0.01em',
+            margin: '44px 0 0',
+          }}
+        >
+          트랙 리스트
+        </h3>
+        <ol className="alb-tracks" style={{ marginTop: 12 }}>
           {TRACKS.map((t) => (
             <li key={t.no}>
               <span className="no">{String(t.no).padStart(2, '0')}</span>
@@ -149,7 +160,7 @@ export default function Touched() {
             </p>
           </li>
           <li>
-            <b>가장 큰 약점은 스트리밍 지표.</b>
+            <b>성장의 병목은 스트리밍.</b>
             <p>
               <Chip kind="obs" />
               스포티파이 월간 청취자 87,676명(2026.05 기준)으로 라이브 팬덤
@@ -162,36 +173,42 @@ export default function Touched() {
             </p>
           </li>
           <li>
+            <b>성장 모멘텀에 혼조 신호.</b>
+            <p>
+              <Chip kind="obs" />
+              HIGHLIGHT Ⅲ는 올림픽홀 시야제한석까지 완전 매진, Ⅳ는 규모
+              확대에도 실관객 감소. 최근 단독 공연(2026.07)은 매진 미달이나
+              팬덤 결집은 견조(현장 관찰 — 정량 검증 아님).
+            </p>
+            <p>
+              <Chip kind="int" />
+              코어 팬덤 충성도는 유지되나 확장은 정체된 것으로 읽힘.
+            </p>
+          </li>
+          <li>
             <b>가사 세계관.</b>
             <p>
-              감정을 사물로 치환하되 그 치환을 문장 안에서 해설함. 표현은
-              평이·직관적. (증폭되는 갈등 → 눈덩이, 눈물 → 파란 물감) 타인을
-              대하는 시선이 자신을 중심으로 이뤄짐.
+              감정을 사물로 치환하되 그 치환을 문장 안에서 해설함. 이때
+              해설에는 직관적인 표현이 사용됨. (증폭되는 갈등 → 눈덩이,
+              &ldquo;커져가는 감정들은 눈덩이가 되어가.&rdquo;) 타인을
+              바라보는 시선이 자신을 중심으로 이뤄짐(
+              <a href="#catalog-gap">③ 컨셉과 근거</a>).
             </p>
           </li>
           <li>
             <b>정체성 미해결.</b>
             <p>
-              &ldquo;터치드의 음악이 무엇인가&rdquo;에 아직 답하지 못함.
-              하드록 팬도 팝 팬도 완전히 설득하지 못하는 중간 지점.
-              하드록에서 팝적 감수성으로 이동 중이나 지향점이 불분명한 인상.
-            </p>
-          </li>
-          <li>
-            <b>성장 모멘텀에 혼조 신호.</b>
-            <p>
-              <Chip kind="obs" />
-              HIGHLIGHT Ⅲ는 올림픽홀을 시야제한석까지 완전 매진, HIGHLIGHT
-              Ⅳ는 공연장 규모 확대에도 실관객 감소. 최근 단독 공연(2026.07)은
-              매진 미달이나 기존 팬덤 결집은 견조(현장 관찰 — 정량 검증
-              아님). 즉, 코어 팬덤 충성도는 유지되나 확장이 정체된 상태.
+              &ldquo;터치드의 음악이 무엇인가&rdquo;를 확립하는 과정에 있음.
+              하드록 팬도 팝 팬도 완전히 설득하지 못하는 중간 지점. 특정
+              방향으로 수렴하기보다 여러 갈래를 동시에 시도하는 단계 —
+              선공개곡 안에서도 가벼운 팝 감각과 하드록 발라드가 공존.
             </p>
           </li>
           <li>
             <b>발매 준비 중인 앨범은 첫 정규 앨범.</b>
             <p>
               한 번밖에 없는 서사적 이벤트. 지금의 혼란을 명확한 의도 없이
-              담으면 팀의 한계를 공식화할 위험.
+              담으면, 탐색 과정이 그대로 밴드의 첫 답변이 되어버림.
             </p>
           </li>
         </ul>
@@ -240,7 +257,8 @@ export default function Touched() {
           성장)를 걸어온 팀이다. 따라서 좌절·절망 같은 &lsquo;결핍의
           언어&rsquo;를 시도할 때 그 어둠은 소유하지 않은 것을 빌려온 인상을
           준다. 어둠을 노래하려는 팀에게 그 언어가 익숙하지 않다는 것 —
-          이것이 첫 번째 문제.
+          이것이 이 앨범이 풀어야 할 첫 번째 문제였다. 그렇다면 눈부신 빛을
+          내는 터치드가 가장 선명하게 호명할 수 있는 결핍의 언어는 무엇인가.
         </p>
         <p>
           <strong>그 답으로 제목 《역광》을 제시한다.</strong> 이중 독해를
@@ -275,20 +293,18 @@ export default function Touched() {
           전자는 이미 빛 안에 있는 사람의 이야기, 후자는 빛을 추구하는 모든
           사람의 이야기 — 터치드와 청자 사이의 거리를 좁힌다.
         </p>
-        <h3>카탈로그의 오래된 공백을 겨냥</h3>
+        <h3 id="catalog-gap" style={{ scrollMarginTop: 96 }}>
+          카탈로그의 오래된 공백을 겨냥
+        </h3>
         <p>
           기존 곡들에서 &lsquo;너&rsquo;는 &lsquo;나&rsquo;가 도움을 건네는
           대상이었던 적이 없다. &lsquo;너&rsquo;는 나를 빛내주는 존재이거나
-          나를 구해줄 존재. 시선은 언제나 한 방향.
+          나를 구해줄 존재. 시선은 언제나 한 방향(&ldquo;내게 와서 날
+          빛내줘&rdquo; — 새벽별, &ldquo;나를 기억해줘&rdquo; — Stay by my
+          Side).
         </p>
-        <div className="alb-quote">
-          &ldquo;내게 와서 날 빛내줘&rdquo; — 새벽별 (반딧불이 동계열) ·
-          &ldquo;나를 꺼내줘&rdquo; — Save Me · &ldquo;나를 기억해줘&rdquo; —
-          Stay by my Side
-          <span className="src">카탈로그 시선 방향 분석 — 가사 인용</span>
-        </div>
         <p>
-          《역광》은 이 공백을 억지 이타주의로 채우지 않는다 — 스포트라이트
+          《역광》은 이 공백 앞에서 이타주의로 도약하지 않는다 — 스포트라이트
           안에 있는 사람은 객석이 보이지 않고, 빛을 등지고 서야 어둠 속
           상대가 보인다. 앨범의 종착은 &ldquo;내가 너를 구하겠다&rdquo;가
           아니라 <strong>&ldquo;이제야 네가 보인다&rdquo;</strong>이며,
@@ -372,8 +388,7 @@ export default function Touched() {
         <p>
           신곡 4곡의 사양. 무엇을 만들라는 주문이 아니라{' '}
           <strong>무엇이 오면 반려하는지</strong>까지 명시한 것이 이 기획의
-          차별점이다 — 포트폴리오 문서에 기술했다(
-          <a href="#not-here">이 사이트에 없는 것</a>).
+          차별점이다(<a href="#not-here">이 사이트에 담지 않은 것</a>).
         </p>
         <SpecMatrix
           columns={SPEC_COLUMNS}
@@ -424,10 +439,12 @@ export default function Touched() {
           경로 특정분 중 최대 계기군). 단, 방송 창은 과거 출연의 잔광으로
           신규 출연 없이는 감쇠 예상.
         </p>
-        <h3>
-          팬은 퍼포먼스를 목격하는 순간에 태어난다 — 선공개 전략 (
-          <a href="#not-here">이 사이트에 없는 것</a>)
-        </h3>
+        <p>
+          <strong>
+            터치드의 팬덤은 퍼포먼스 목격에서 시작된다 — 타이틀 선공개 제안
+          </strong>
+          (<a href="#not-here">이 사이트에 담지 않은 것</a>)
+        </p>
       </AlbumSection>
 
       {/* ⑦ 실현 가능성 — 공개판 축약 */}
@@ -460,8 +477,8 @@ export default function Touched() {
         </table>
         <p>
           이 외에도 멤버들의 공개 발언·기록과 신곡 사양(Sunburst, Whiteout,
-          일광화상)의 대응 분석 3건을 추가로 진행했으며,{' '}
-          <a href="#not-here">상세 내용은 면접 시 제공한다</a>.
+          일광화상)의 대응 분석 3건을 추가로 진행하였다(
+          <a href="#not-here">이 사이트에 담지 않은 것</a>).
         </p>
         <p>
           이처럼 《역광》의 컨셉은 외부에서 이식된 것이 아니라, 내부에서
@@ -519,7 +536,7 @@ export default function Touched() {
         </p>
       </AlbumSection>
 
-      {/* ═══ 층3 — 판단의 기록 + 이 사이트에 없는 것 ═══════════ */}
+      {/* ═══ 층3 — 판단의 기록 + 이 사이트에 담지 않은 것 ═══════════ */}
       <section className="alb-l3" id="ledger">
         <div className="alb-l3-inner">
           <p className="lbl">판단의 기록</p>
@@ -541,7 +558,7 @@ export default function Touched() {
 
           <div className="alb-none" id="not-here">
             <p className="lbl">공개 범위</p>
-            <h2>이 사이트에 없는 것</h2>
+            <h2>이 사이트에 담지 않은 것</h2>
             <ul>
               <li>
                 <b>실행 설계 문서</b>
@@ -561,7 +578,7 @@ export default function Touched() {
                 <b>유입 분석 원자료</b>
                 <span>
                   판정 로그, 감사 데이터, 재현성 묶음 (
-                  <Link href="/method#inflow">방법론 페이지</Link>에 절차는
+                  <Link href="/method#inflow">분석 방법</Link>에 절차는
                   공개됨)
                 </span>
               </li>
@@ -570,7 +587,6 @@ export default function Touched() {
                 <span>반려 기준을 실제 판정에 쓰는 프로세스</span>
               </li>
             </ul>
-            <p className="closing">위 자료는 채용 협의 단계에서 공유합니다.</p>
           </div>
         </div>
       </section>

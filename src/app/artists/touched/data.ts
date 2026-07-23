@@ -25,7 +25,7 @@ export const SECTIONS: (AlbumNavSection & { title: string })[] = [
 export const DEEP_LINKS: AlbumDeepLink[] = [
   { href: '/method#inflow', label: '분석 방법' },
   { href: '/artists/touched/log/', label: '관찰 기록' },
-  { href: '/artists/touched/v1/', label: '기획 이력 v1' },
+  { href: '/artists/touched/v1/', label: '기획 이력(v1)' },
 ];
 
 // 트랙리스트 12행 (wip = 가제)
@@ -75,8 +75,8 @@ export const SPEC_ROWS: SpecRow[] = [
   {
     label: '톤/사운드',
     cells: [
-      'Highlight 톤, 경쾌하고 야망에 찬 모습, 자우림 레퍼런스',
-      '80년대 감정 극대주의',
+      "경쾌하고 야망에 찬 모습 / 레퍼런스 — 터치드 'Highlight'",
+      "갈구할 수밖에 없는 절망감 / 레퍼런스 — Red 'Already Over'",
       '담담. 현재 터치드의 절제 문법',
       '전반 좁고 가깝게 → 후반 공간 열림',
     ],
@@ -94,7 +94,7 @@ export const SPEC_ROWS: SpecRow[] = [
     label: '형식 조항',
     cells: [
       'Whiteout과의 구분: 무자각 버전',
-      '근거: 선공개곡 청취 기준, 80년대 해외 록 지향의 낭만적 감정주의 — 팀 질감과 정합',
+      '근거: 선공개곡 청취 기준, 서사적 얼터너티브 하드록, 혹은 시네마틱 록 — 팀 질감과 정합',
       "편지 형식. 수신인=7·8번의 '너'(=빛). 반전 — 수신인이 자기 자신이었음이 드러남. 단 선언 금지, 호칭의 소멸로만 처리.",
       '촉각(온기) 선행 → 시각(개안). 온기는 결론 아닌 원인',
     ],
@@ -139,9 +139,8 @@ export const LEDGER: {
     badge: 'sunburst → Track 1 재채용',
   },
   { name: '라이브 영상 + 스튜디오 음원 싱크' },
-  { name: '아버지 수신인' },
   {
     name: 'v1 5막 구조',
-    link: { href: '/artists/touched/v1/', label: '기획 이력 v1' },
+    link: { href: '/artists/touched/v1/', label: '기획 이력(v1)' },
   },
 ];
