@@ -21,9 +21,9 @@ export const SECTIONS: (AlbumNavSection & { title: string })[] = [
   { id: 'stage', no: '⑧', nav: '무대', title: '무대·비주얼 번역' },
 ];
 
-// 부속 딥링크 — /log·/v1 라우트와 /method#inflow 앵커는 다음 세션에서 생성 예정(확정 경로 선연결).
+// 부속 딥링크 — 헤더 '분석 방법'은 페이지 최상단으로(본문 맥락 링크만 #inflow 딥링크).
 export const DEEP_LINKS: AlbumDeepLink[] = [
-  { href: '/method#inflow', label: '분석 방법' },
+  { href: '/method/', label: '분석 방법' },
   { href: '/artists/touched/log/', label: '관찰 기록' },
   { href: '/artists/touched/v1/', label: '기획 이력(v1)' },
 ];
