@@ -68,7 +68,7 @@ export default function Method() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           {/* ── 섹션 1: 팬 유형 분석 (기존 1~6절) ── */}
-          <div id="fan-type" style={{ scrollMarginTop: 72, marginBottom: 44 }}>
+          <div id="fan-type" style={{ marginBottom: 44 }}>
             <p className="eyebrow">Section 1</p>
             <h2 style={{ fontSize: 30, marginTop: 0 }}>팬 유형 분석</h2>
             <p style={{ color: 'var(--ink-soft)', marginBottom: 0 }}>
@@ -424,7 +424,7 @@ export default function Method() {
       </section>
 
       {/* ── 섹션 2: 유입 창 분석 (신설) ── */}
-      <section className="section" id="inflow" style={{ scrollMarginTop: 72 }}>
+      <section className="section" id="inflow">
         <div className="container">
           <p className="eyebrow">Section 2</p>
           <h2 style={{ fontSize: 30, marginTop: 0 }}>유입 창 분석</h2>

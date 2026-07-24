@@ -26,6 +26,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 앵커 이동 시 고정 헤더(.nav, 높이 60px) 아래로 대상이 가려지지 않도록
+   여백 확보. 앨범 페이지는 자체 헤더 높이에 맞춰 album-system.css에서 상향. */
+[id] {
+  scroll-margin-top: 72px;
+}
+
 body {
   margin: 0;
   background: var(--bg);

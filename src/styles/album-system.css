@@ -53,6 +53,12 @@ body:has(.album-scope) {
   border-bottom: 1px solid var(--line);
 }
 
+/* 앵커 이동 시 앨범 전용 헤더(스트립+바, 약 86px) 아래로 대상이 가려지지
+   않도록 여백 상향. globals.css의 [id] 기본값(72px)을 덮는다. */
+.album-scope [id] {
+  scroll-margin-top: 96px;
+}
+
 .alb-strip {
   margin: 0;
   padding: 7px 16px;
