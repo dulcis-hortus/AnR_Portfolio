@@ -318,7 +318,7 @@ export default function Touched() {
             <tr>
               <th scope="col">#</th>
               <th scope="col">트랙</th>
-              <th scope="col">아크 위치</th>
+              <th scope="col">서사상 위치</th>
             </tr>
           </thead>
           <tbody>
@@ -335,9 +335,9 @@ export default function Touched() {
           </tbody>
         </table>
         <p className="alb-fn">
-          가제와 아크 위치는 본 기획의 제안 · 선공개 8곡 2026년 7월 기준.
+          가제와 서사상 위치는 본 기획의 제안 · 선공개 8곡 2026년 7월 기준.
         </p>
-        <h3>아크 흐름</h3>
+        <h3>서사 구성</h3>
         <p>
           거침없는 상승(Sunburst)이 어느 순간 좌표를 잃고 하강하기
           시작한다(무중력 → 미아 → Hide). 무중력은 몽환적이고 평온하며, 미아는
@@ -497,8 +497,9 @@ export default function Touched() {
           </div>
         </div>
         <p>
-          실루엣의 미학에서 역광(Contre-jour)은 럭셔리 사진의 문법이기도 하므로
-          팬덤이 선망하는 세련된 이미지 자산과 충돌하지 않는다. 다만 모든 곡에서
+          실루엣의 미학에서 <strong>역광(Contre-jour)</strong>은 럭셔리 사진의
+          문법이기도 하므로 팬덤이 선망하는 세련된 이미지 자산과 충돌하지
+          않는다. 다만 모든 곡에서
           역광을 고집하면 비주얼이 전혀 보이지 않을 수 있고, 이는 신규 유입
           저하·기존 팬 충성도 하락으로 손실이 더 클 수 있다. 따라서{' '}
           <strong>서사적으로 반드시 필요한 곡에서만</strong> 역광을
