@@ -14,7 +14,7 @@ export const SECTIONS: (AlbumNavSection & { title: string })[] = [
   { id: 'diagnosis', no: '①', nav: '진단', title: '진단' },
   { id: 'question', no: '②', nav: '질문', title: '질문' },
   { id: 'concept', no: '③', nav: '컨셉', title: '컨셉과 근거' },
-  { id: 'order', no: '④', nav: '러닝오더', title: '러닝오더와 아크' },
+  { id: 'order', no: '④', nav: '트랙리스트', title: '트랙리스트와 서사 구성' },
   { id: 'spec', no: '⑤', nav: '사양서', title: '신곡 사양서' },
   { id: 'title', no: '⑥', nav: '타이틀', title: '타이틀 전략과 퍼널' },
   { id: 'feasibility', no: '⑦', nav: '실현성', title: '실현 가능성' },

@@ -505,7 +505,7 @@ body:has(.album-scope) {
   border: 1px dashed var(--album);
 }
 
-/* ── 표 (러닝오더 등 일반) — 좌우 스크롤 금지 ─────────────────── */
+/* ── 표 (트랙리스트 등 일반) — 좌우 스크롤 금지 ───────────────── */
 .alb-table {
   width: 100%;
   border-collapse: collapse;

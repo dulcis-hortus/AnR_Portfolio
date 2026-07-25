@@ -131,7 +131,7 @@ export default function Touched() {
           데이터: 2026-06-12 수집 · 유입 판정: 2026-07
         </p>
         <a className="alb-diff" href="#order">
-          곡별 배치 근거 보기 — ④ 러닝오더와 아크 ↓
+          곡별 배치 근거 보기 — ④ 트랙리스트와 서사 구성 ↓
         </a>
       </div>
 
@@ -306,11 +306,12 @@ export default function Touched() {
         </p>
       </AlbumSection>
 
-      {/* ④ 러닝오더와 아크 */}
-      <AlbumSection id="order" no="④" title="러닝오더와 아크">
+      {/* ④ 트랙리스트와 서사 구성 */}
+      <AlbumSection id="order" no="④" title="트랙리스트와 서사 구성">
         <p>
-          《역광》의 러닝오더는 총 12곡이다. 이번 기획에서 새로 제안하는 4곡과
-          선공개 8곡으로 이루어진다.
+          《역광》은 총 12곡으로 구성된다. 이번 기획에서 새로 제안하는 신곡
+          4곡과, 라이브로만 공개되어 온 미발매곡 8곡을 하나의 서사 아래
+          배열했다.
         </p>
         <table className="alb-table">
           <thead>
@@ -382,12 +383,12 @@ export default function Touched() {
       {/* ⑥ 타이틀 전략과 퍼널 */}
       <AlbumSection id="title" no="⑥" title="타이틀 전략과 퍼널">
         <p>
-          《역광》은 더블 타이틀 앨범이다(Sunburst · Whiteout). 두 타이틀은
+          《역광》은 더블 타이틀 앨범(Sunburst · Whiteout)이다. 두 타이틀은
           서로 다른 취향을 겨냥한 상품 두 개가 아니라,{' '}
           <strong>하나의 갈망이 앨범 안에서 겪는 변화의 양 끝점</strong>이다.
           Sunburst에서 암시된 결핍이 Whiteout에서 자각적 폭발로 연결된다.
-          이처럼 타이틀 선정은 헤지가 아닌 서사에 기반하였고 앨범의 핵심
-          사건을 압축 전달해 전체 아크에 대한 호기심을 만드는 걸 목표로 한다.
+          이와 같은 타이틀 선정은 앨범의 핵심 사건을 압축 전달해 전체 아크에
+          대한 호기심을 유발하는 걸 목표한다.
         </p>
         <p>
           타이틀 선공개 전략은 <a href="#diagnosis">① 진단</a>에서 확인한 유입
