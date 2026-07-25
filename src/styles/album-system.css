@@ -934,7 +934,8 @@ body:has(.album-scope) {
     border-bottom: none;
   }
 
-  .alb-spec-cards dl > div.alb-band dt {
+  .alb-spec-cards dl > div.alb-band dt,
+  .alb-spec-cards dl > div.alb-band dd {
     color: var(--reject);
   }
 
