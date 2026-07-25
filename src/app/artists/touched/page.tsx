@@ -131,7 +131,7 @@ export default function Touched() {
           데이터: 2026-06-12 수집 · 유입 판정: 2026-07
         </p>
         <a className="alb-diff" href="#order">
-          곡별 배치 근거 보기 — ④ 트랙리스트와 서사 구성 ↓
+          곡별 배치 근거 보기 — ④ 트랙과 서사 구성 ↓
         </a>
       </div>
 
@@ -306,8 +306,8 @@ export default function Touched() {
         </p>
       </AlbumSection>
 
-      {/* ④ 트랙리스트와 서사 구성 */}
-      <AlbumSection id="order" no="④" title="트랙리스트와 서사 구성">
+      {/* ④ 트랙과 서사 구성 */}
+      <AlbumSection id="order" no="④" title="트랙과 서사 구성">
         <p>
           《역광》은 총 12곡으로 구성된다. 이번 기획에서 새로 제안하는 신곡
           4곡과, 라이브로만 공개되어 온 미발매곡 8곡을 하나의 서사 아래
