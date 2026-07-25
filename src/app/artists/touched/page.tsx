@@ -455,7 +455,7 @@ export default function Touched() {
           </tbody>
         </table>
         <p>
-          이 외에도 멤버들의 공개 발언·기록과 신곡 사양(Sunburst, Whiteout,
+          이 외에도 공개 인터뷰·방송 발언과 신곡 사양(Sunburst, Whiteout,
           일광화상)의 대응 분석 3건을 추가로 진행하였다(
           <a href="#not-here">이 사이트에 담지 않은 것</a>).
         </p>
