@@ -100,7 +100,7 @@ export default function Touched() {
           </div>
           <div className="alb-num">
             <span className="v">12트랙</span>
-            <span className="k">선공개 8곡 + 제안 4곡(가제)</span>
+            <span className="k">미발매 8곡 + 제안 4곡(가제)</span>
           </div>
         </div>
 
@@ -281,7 +281,7 @@ export default function Touched() {
           기존 곡들에서 &lsquo;나&rsquo;는 &lsquo;너&rsquo;에게 직접적으로
           도움을 주었던 적이 없다. 오히려 &lsquo;너&rsquo;가 나를 구해주는
           존재였다(&ldquo;짙어진 그림자는 오직 너만 밝혀줄 수 있으니까&rdquo; —
-          새벽별, &ldquo;나를 기억해줘&rdquo; — Stay by my Side).
+          새벽별, &ldquo;나를 기억해줘&rdquo; — Stay by My Side).
         </p>
         <p>
           이 공백에서 《역광》은 이타주의로 도약하지 않는다. 스포트라이트 안에
@@ -318,7 +318,7 @@ export default function Touched() {
             <tr>
               <th scope="col">#</th>
               <th scope="col">트랙</th>
-              <th scope="col">서사상 위치</th>
+              <th scope="col">국면</th>
             </tr>
           </thead>
           <tbody>
@@ -335,7 +335,7 @@ export default function Touched() {
           </tbody>
         </table>
         <p className="alb-fn">
-          가제와 서사상 위치는 본 기획의 제안 · 선공개 8곡 2026년 7월 기준.
+          가제와 서사 국면은 본 기획의 제안 · 미발매 8곡 2026년 7월 기준.
         </p>
         <h3>서사 구성</h3>
         <p>
@@ -347,7 +347,7 @@ export default function Touched() {
         <p>
           이후 화자는 깊은 밤을 헤매며(영혼의 밤) 강렬한 빛을 갈구하다 시야를
           상실한다(Whiteout). 구원을 위해 타자에게 매달리지만, 세 번의 시도(Save
-          Me → Stay by my Side → Alone)에도 돌아오는 응답은 없다.
+          Me → Stay by My Side → Alone)에도 돌아오는 응답은 없다.
         </p>
         <p>
           <strong>
@@ -412,7 +412,8 @@ export default function Touched() {
           </li>
         </ul>
         <p>
-          라이브 영상에 스튜디오 음원을 싱크하는 안은 검토 후 기각했다. 이
+          라이브 영상에 스튜디오 음원을 싱크하는 안은{' '}
+          <a href="#ledger">검토 후 기각</a>했다. 이
           팀의 유입층은 라이브의 진위를 판별하며 들어온 팬층이므로,{' '}
           <strong>싱크 연출은 그 진정성 자산을 담보로 잡는 선택</strong>이다.
           형상과 실체의 일치를 따르는 《역광》의 컨셉과도 정면으로 충돌한다.

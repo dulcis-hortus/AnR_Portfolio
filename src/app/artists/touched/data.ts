@@ -37,7 +37,7 @@ export const TRACKS = [
   { no: 5, title: '영혼의 밤', wip: false, open: true, arc: '헤맴' },
   { no: 6, title: 'Whiteout', wip: true, open: false, arc: '갈망의 자각과 폭발' },
   { no: 7, title: 'Save Me', wip: false, open: true, arc: '매달림(절망)' },
-  { no: 8, title: 'Stay by my Side', wip: false, open: true, arc: '의존' },
+  { no: 8, title: 'Stay by My Side', wip: false, open: true, arc: '의존' },
   { no: 9, title: 'Alone', wip: false, open: true, arc: '간청' },
   { no: 10, title: '일광화상', wip: true, open: false, arc: '결핍에 대한 자백' },
   { no: 11, title: 'At Home', wip: false, open: true, arc: '자기 위로' },
@@ -94,7 +94,7 @@ export const SPEC_ROWS: SpecRow[] = [
     label: '형식 조항',
     cells: [
       'Whiteout과의 구분: 무자각 버전',
-      '서사적 얼터너티브 하드록, 혹은 시네마틱 록. 근거: 선공개곡 청취 기준 팀 질감과 정합.',
+      '서사적 얼터너티브 하드록, 심포닉 편곡. 근거: 미발매곡 청취 기준(Save Me, Stay by My Side) 팀 질감과 정합.',
       "편지 형식. 수신인은 '너'가 아닌 자기 자신이었음이 드러남. 반전은 호칭의 소멸로만 처리.",
       '촉각(온기) 선행 → 시각(개안). 온기는 결론 아닌 원인',
     ],
