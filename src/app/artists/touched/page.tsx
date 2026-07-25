@@ -368,16 +368,15 @@ export default function Touched() {
 
       {/* ⑤ 신곡 사양서 — 유일하게 폭 960 허용 */}
       <AlbumSection id="spec" no="⑤" title="신곡 사양서" wide>
-        <p>
-          신곡 4곡의 사양. 무엇을 만들라는 주문이 아니라{' '}
-          <strong>무엇이 오면 반려하는지</strong>까지 명시한 것이 이 기획의
-          차별점이다(<a href="#not-here">이 사이트에 담지 않은 것</a>).
-        </p>
         <SpecMatrix
           columns={SPEC_COLUMNS}
           rows={SPEC_ROWS}
           defaultOpenKey="whiteout"
         />
+        <p className="alb-fn">
+          가사 방향 금지 조항 및 데모 반려 기준 일부는 원문서에만 존재(
+          <a href="#not-here">이 사이트에 담지 않은 것</a>)
+        </p>
       </AlbumSection>
 
       {/* ⑥ 타이틀 전략과 퍼널 */}

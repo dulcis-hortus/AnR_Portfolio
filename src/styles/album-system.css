@@ -27,6 +27,10 @@ body:has(.album-scope) {
   --line: #c9c5bb;
   --card: #fbfaf7;
 
+  /* 반려 기준 강조색 — 앨범색(앰버)과 구분되는 벽돌 레드.
+     --card 위 대비 약 7:1 (AA/AAA). */
+  --reject: #a02929;
+
   /* 서체 3역할 (혼용 금지) */
   --display: 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
   --body: 'Pretendard Variable', Pretendard, -apple-system,
@@ -565,12 +569,15 @@ body:has(.album-scope) {
   left: 0;
 }
 
-/* 금지 조항·반려 기준 강조 밴드 — 앨범 색 저농도 배경 + 텍스트 */
+/* 반려 기준 행 — 배경 tint 대신 앨범색 액센트 룰 + 라벨만 강조.
+   셀 배경·본문 텍스트는 다른 행과 동일하게 유지해 표 통일성을 지키고,
+   특수성은 상단 구분선과 라벨 색으로만 표시한다. */
 .alb-spec-table tr.alb-band th,
-.alb-spec-table tr.alb-band td,
-.alb-spec-cards .alb-band {
-  background: color-mix(in srgb, var(--album) 8%, var(--card));
-  color: var(--album);
+.alb-spec-table tr.alb-band td {
+  border-top: 2px solid var(--reject);
+}
+.alb-spec-table tr.alb-band th {
+  color: var(--reject);
 }
 
 .alb-spec-cards {
@@ -920,11 +927,15 @@ body:has(.album-scope) {
     border-bottom: none;
   }
 
+  /* 모바일 카드에서는 앨범색 액센트 룰(붉은 선)을 노출하지 않고
+     라벨 색만으로 반려 기준을 표시한다. */
   .alb-spec-cards dl > div.alb-band {
-    padding: 8px;
-    border-radius: 4px;
+    padding: 8px 0;
     border-bottom: none;
-    margin: 4px 0;
+  }
+
+  .alb-spec-cards dl > div.alb-band dt {
+    color: var(--reject);
   }
 
   .alb-spec-cards dt {
