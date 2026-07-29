@@ -1,7 +1,9 @@
+import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CIChart from '@/components/CIChart';
 import { SITE } from '@/data/site';
+import { ALBUM_COLOR as TOUCHED_ACCENT } from '@/app/artists/touched/data';
 
 export const metadata: Metadata = {
   title: { absolute: SITE.title },
@@ -13,28 +15,34 @@ export const metadata: Metadata = {
   },
 };
 
-// 가상 앨범 피드 — 아트·타이틀은 시안(미결). 기획안 공개 전 placeholder.
+// 가상 앨범 피드 — 아트워크 대신 타이포 커버. 라이트 서피스에 앨범별 액센트를
+// 주입하고, 형태 라벨·타이틀·아티스트명·한 줄 컨셉을 조판한다.
+// accent는 모두 지면(--bg) 위 대비 AA 이상. 터치드는 앨범 페이지와 단일 출처.
+// hook은 각 앨범 페이지의 확정 문안을 그대로 옮긴 것 — 카드용으로 줄이지 않는다.
 const ALBUM_FEED = [
   {
     artist: '신인류',
-    title: 'EP 《구름을 빌려줘》',
+    form: 'EP',
+    album: '구름을 빌려줘',
     href: '/artists/sinillyu/',
-    gradient: 'linear-gradient(135deg, #2b3a67 0%, #b3591f 100%)',
-    status: '기획안 공개',
+    accent: '#1f5fa8', // 코발트 (대비 6.07:1, AA+)
+    hook: '연대로 닿지 못하고 자신에게 되돌아오는 경험들을, 수치나 부족함이 아니라 원래 잡히지 않는 것들로 바라보는 앨범.',
   },
   {
     artist: '터치드',
-    title: '정규 1집 《역광》',
+    form: '정규 1집',
+    album: '역광',
     href: '/artists/touched/',
-    gradient: 'linear-gradient(135deg, #4a2b3a 0%, #c9903a 100%)',
-    status: '기획안 공개',
+    accent: TOUCHED_ACCENT, // 화상 엠버 — touched/data.ts
+    hook: '빛을 쫓는 동안엔 어둠을 볼 수 없었다',
   },
   {
     artist: '음율',
-    title: '정규 3집 《매순간 그냥 그러고 싶었어》',
+    form: '정규 3집',
+    album: '매순간 그냥 그러고 싶었어',
     href: '/artists/eumyul/',
-    gradient: 'linear-gradient(135deg, #1f3d33 0%, #7a9e7e 100%)',
-    status: '기획안 공개',
+    accent: '#2f5d4a', // 포레스트 (대비 7.11:1, AAA)
+    hook: '나에게 정직해지는 선택을 매순간 내려왔다는 것을, 설명하지 않고 그냥 그러고 싶었다는 말 한마디로 압축하는 앨범.',
   },
 ];
 
@@ -94,14 +102,46 @@ export default function Home() {
           <div className="album-feed">
             {ALBUM_FEED.map((a) => (
               <Link className="album-card" href={a.href} key={a.artist}>
-                <div className="album-art" style={{ background: a.gradient }}>
-                  {a.artist}
-                </div>
-                <div className="album-meta">
-                  <div className="artist">
-                    {a.artist} — {a.title}
+                <div
+                  className="album-art"
+                  style={{ '--album': a.accent } as CSSProperties}
+                >
+                  <span className="rule" />
+                  <span className="form">{a.form}</span>
+                  {/* 여백을 채우는 재생 기호. */}
+                  <svg
+                    className="play"
+                    viewBox="0 0 44 44"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <circle
+                      cx="22"
+                      cy="22"
+                      r="21"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                    <path d="M17.5 14.5L30 22l-12.5 7.5z" fill="currentColor" />
+                  </svg>
+                  {/* 아래로 붙는 본문 블록 — 타이틀 줄 수가 달라도 밑변이 맞고
+                      위쪽 여백이 차이를 흡수한다. */}
+                  <div className="body">
+                    {/* 안쪽 span은 모바일 2줄 말줄임(line-clamp)용 —
+                        바깥 .title이 flex여도 클램프가 걸리게 한다. */}
+                    <span
+                      className={
+                        a.album.replace(/\s/g, '').length <= 4
+                          ? 'title short'
+                          : 'title'
+                      }
+                    >
+                      <span>{a.album}</span>
+                    </span>
+                    <span className="artist">{a.artist}</span>
+                    <p className="hook">{a.hook}</p>
                   </div>
-                  <div className="status">{a.status}</div>
                 </div>
               </Link>
             ))}

@@ -395,8 +395,8 @@ a {
 /* ── 가상 앨범 피드 ────────────────────────────────────────── */
 .album-feed {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
 }
 
 .album-card {
@@ -404,30 +404,236 @@ a {
   display: block;
 }
 
+/* 타이포 커버 — 라이트 서피스에 앨범 액센트(--album)만 주입한다.
+   아트워크가 없으므로 여백·조판 위계로 밀도를 만든다. */
 .album-art {
-  aspect-ratio: 1;
+  position: relative;
+  aspect-ratio: 4 / 3;
   border-radius: 10px;
   border: 1px solid var(--line);
+  background: var(--bg-raised);
   display: flex;
-  align-items: flex-end;
-  padding: 16px;
-  color: #fff;
-  font-family: var(--font-serif);
+  flex-direction: column;
+  padding: 28px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* 아주 옅은 액센트 워시 — 세 장을 색으로 구분하되 요소는 늘리지 않는다. */
+.album-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--album) 0%, transparent 55%);
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.album-art .rule {
+  width: 34px;
+  height: 3px;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  background: var(--album);
+  transition: width 0.25s ease;
+}
+
+.album-art .form {
+  color: var(--album);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* 본문 블록을 아래로 붙여 타이틀 줄 수와 무관하게 밑변을 맞춘다. */
+.album-art .body {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+}
+
+.album-art .title {
+  display: block;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  word-break: keep-all; /* 한국어는 어절 단위로 접는다. */
+  overflow-wrap: anywhere; /* 어절이 폭을 넘기면 잘리는 대신 접는다. */
+  text-wrap: balance;
+}
+
+/* 짧은 제목은 키워서 시각 무게를 맞춘다. */
+.album-art .title.short {
+  font-size: 46px;
+}
+
+.album-art .artist {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink-soft);
   font-size: 15px;
-}
-
-.album-meta {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.album-meta .artist {
   font-weight: 600;
 }
 
-.album-meta .status {
-  color: var(--ink-faint);
-  font-size: 13px;
+.album-art .hook {
+  margin: 14px 0 0;
+  padding-left: 11px;
+  border-left: 2px solid var(--album);
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 재생 기호 — 상단 우측 여백에 놓아 시각적 앵커로 쓴다. 액센트를 쓰되
+   투명도로 눌러서 rule·라벨·hook 선과 경합하지 않게 한다. */
+.album-art .play {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  color: var(--album);
+  opacity: 0.45;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.album-card:hover .play {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.album-card:hover .album-art {
+  border-color: color-mix(in srgb, var(--album) 45%, var(--line));
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px -14px rgba(26, 26, 26, 0.24);
+}
+
+.album-card:hover .rule {
+  width: 56px;
+}
+
+.album-card:focus-visible .album-art {
+  outline: 2px solid var(--album);
+  outline-offset: 3px;
+}
+
+/* 모바일 — 시안은 PC 전용이라, 2열 조판은 이전 모습 그대로 유지한다. */
+@media (max-width: 640px) {
+  .album-feed {
+    gap: 16px;
+  }
+
+  /* 모바일 2열은 앨범 커버처럼 정사각형을 유지한다. */
+  .album-art {
+    aspect-ratio: 1;
+    padding: 22px;
+  }
+
+  /* 시안 요소(워시·rule·한 줄 컨셉)와 호버 리프트는 좁은 카드에 과하다. */
+  .album-art::after,
+  .album-art .rule,
+  .album-art .hook {
+    display: none;
+  }
+
+  .album-card:hover .album-art {
+    border-color: var(--album);
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* 형태 라벨 위 괘선을 되살린다(시안에서는 별도 .rule이 대신한다). */
+  .album-art .form {
+    align-self: flex-start;
+    padding-top: 9px;
+    border-top: 2px solid var(--album);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .album-art .title,
+  .album-art .title.short {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .album-art .artist {
+    margin-top: 12px;
+    padding-left: 3px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* 좁은 카드에 맞춰 축소. 형태 라벨은 왼쪽이라 겹치지 않는다. */
+  .album-art .play {
+    top: 18px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+  }
+
+  /* 타이틀은 2줄까지만. 넘치면 둘째 줄 끝에 말줄임표. */
+  .album-art .title > span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+/* 2열 카드가 24px 타이틀을 감당하지 못하는 구간(약 442px 미만)부터 조판 축소. */
+@media (max-width: 440px) {
+  .album-art {
+    padding: 14px;
+  }
+
+  .album-art .form {
+    padding-top: 7px;
+    font-size: 11px;
+  }
+
+  .album-art .play {
+    top: 12px;
+    right: 11px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .album-art .title,
+  .album-art .title.short {
+    font-size: 18px;
+  }
+
+  .album-art .artist {
+    margin-top: 9px;
+    font-size: 12px;
+  }
+}
+
+/* 배치 규칙보다 뒤에 둬야 PC·모바일 양쪽에서 이동을 끈다. */
+@media (prefers-reduced-motion: reduce) {
+  .album-art,
+  .album-art .rule,
+  .album-art .play {
+    transition: opacity 0.2s;
+  }
+
+  .album-card:hover .album-art,
+  .album-card:hover .play {
+    transform: none;
+  }
+
+  .album-card:hover .rule {
+    width: 34px;
+  }
 }
 
 /* ── About ─────────────────────────────────────────────────── */
