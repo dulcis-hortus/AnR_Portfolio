@@ -645,6 +645,12 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
+/* 설명이 없는 항목도 같은 칸 높이를 갖도록 하한을 둔다.
+   기준은 역할 1줄(16px×1.75) + 설명 1줄(14.5px×1.75 + margin 2px). */
+.timeline li > div {
+  min-height: 55px;
+}
+
 .timeline .period {
   color: var(--ink-faint);
   font-size: 14px;
