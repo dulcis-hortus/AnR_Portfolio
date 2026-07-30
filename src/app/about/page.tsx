@@ -28,7 +28,7 @@ const TIMELINE = [
   {
     period: '2024 – 2025',
     role: '브런치 인디음악 칼럼',
-    detail: '브런치북 발간',
+    detail: '곡 심층 분석, 브런치북 발간',
   },
   {
     period: '2020 – 2025',
