@@ -421,16 +421,6 @@ a {
     box-shadow 0.25s ease;
 }
 
-/* 아주 옅은 액센트 워시 — 세 장을 색으로 구분하되 요소는 늘리지 않는다. */
-.album-art::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, var(--album) 0%, transparent 55%);
-  opacity: 0.05;
-  pointer-events: none;
-}
-
 .album-art .rule {
   width: 34px;
   height: 3px;
@@ -449,8 +439,6 @@ a {
 
 /* 본문 블록을 아래로 붙여 타이틀 줄 수와 무관하게 밑변을 맞춘다. */
 .album-art .body {
-  position: relative;
-  z-index: 1;
   margin-top: auto;
 }
 
@@ -536,8 +524,7 @@ a {
     padding: 22px;
   }
 
-  /* 워시·rule은 좁은 화면에 과해서 유지 — 한 줄 컨셉만 되살린다. */
-  .album-art::after,
+  /* 상단 액센트 바는 좁은 화면에 과하다 — 형태 라벨 괘선이 대신한다. */
   .album-art .rule {
     display: none;
   }
