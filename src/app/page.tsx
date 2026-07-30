@@ -18,7 +18,9 @@ export const metadata: Metadata = {
 // 가상 앨범 피드 — 아트워크 대신 타이포 커버. 라이트 서피스에 앨범별 액센트를
 // 주입하고, 형태 라벨·타이틀·아티스트명·한 줄 컨셉을 조판한다.
 // accent는 모두 지면(--bg) 위 대비 AA 이상. 터치드는 앨범 페이지와 단일 출처.
-// hook은 각 앨범 페이지의 확정 문안을 그대로 옮긴 것 — 카드용으로 줄이지 않는다.
+// hook은 카드용 한 줄 카피. 터치드는 앨범 헤더 문안과 동일하고,
+// 신인류·음율은 지시에 따라 카드 전용으로 정한 문안이라 각 페이지의
+// concept-line과 일치하지 않는다.
 const ALBUM_FEED = [
   {
     artist: '신인류',
@@ -26,7 +28,7 @@ const ALBUM_FEED = [
     album: '구름을 빌려줘',
     href: '/artists/sinillyu/',
     accent: '#1f5fa8', // 코발트 (대비 6.07:1, AA+)
-    hook: '연대로 닿지 못하고 자신에게 되돌아오는 경험들을, 수치나 부족함이 아니라 원래 잡히지 않는 것들로 바라보는 앨범.',
+    hook: '지금 당장 주지 못해도 괜찮아',
   },
   {
     artist: '터치드',
@@ -42,7 +44,7 @@ const ALBUM_FEED = [
     album: '매순간 그냥 그러고 싶었어',
     href: '/artists/eumyul/',
     accent: '#2f5d4a', // 포레스트 (대비 7.11:1, AAA)
-    hook: '나에게 정직해지는 선택을 매순간 내려왔다는 것을, 설명하지 않고 그냥 그러고 싶었다는 말 한마디로 압축하는 앨범.',
+    hook: '나에게 정직한 선택을 내려왔다는 것',
   },
 ];
 
@@ -94,11 +96,7 @@ export default function Home() {
       <section className="section">
         <div className="container-wide">
           <p className="eyebrow">Album Concepts</p>
-          <h2 style={{ marginTop: 0 }}>가상 앨범 기획</h2>
-          <p style={{ color: 'var(--ink-soft)', maxWidth: 560 }}>
-            데이터 분석과 현장 관찰을 근거로, 각 팀의 다음 앨범을
-            기획했습니다. 결론을 먼저 제시하고 근거를 뒤에 폅니다.
-          </p>
+          <h2 style={{ marginTop: 0, marginBottom: 28 }}>가상 앨범 기획</h2>
           <div className="album-feed">
             {ALBUM_FEED.map((a) => (
               <Link className="album-card" href={a.href} key={a.artist}>
@@ -115,21 +113,17 @@ export default function Home() {
                     aria-hidden="true"
                     focusable="false"
                   >
-                    <circle
-                      cx="22"
-                      cy="22"
-                      r="21"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
+                    <path
+                      d="M8.5 14.5L21 22l-12.5 7.5zm12.5 0L33.5 22l-12.5 7.5z"
+                      fill="currentColor"
                     />
-                    <path d="M17.5 14.5L30 22l-12.5 7.5z" fill="currentColor" />
                   </svg>
                   {/* 아래로 붙는 본문 블록 — 타이틀 줄 수가 달라도 밑변이 맞고
                       위쪽 여백이 차이를 흡수한다. */}
                   <div className="body">
                     {/* 안쪽 span은 모바일 2줄 말줄임(line-clamp)용 —
                         바깥 .title이 flex여도 클램프가 걸리게 한다. */}
+                    {/* 두 글자 제목(역광)은 한 단계 키워 시각 무게를 맞춘다. */}
                     <span
                       className={
                         a.album.replace(/\s/g, '').length <= 4

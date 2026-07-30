@@ -408,7 +408,8 @@ a {
    아트워크가 없으므로 여백·조판 위계로 밀도를 만든다. */
 .album-art {
   position: relative;
-  aspect-ratio: 4 / 3;
+  /* 960px 컨테이너 기준 카드 444×313px — 4/3(333px)에서 20px 낮춘 값. */
+  aspect-ratio: 1.42;
   border-radius: 10px;
   border: 1px solid var(--line);
   background: var(--bg-raised);
@@ -455,7 +456,7 @@ a {
 
 .album-art .title {
   display: block;
-  font-size: 34px;
+  font-size: 31px;
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: -0.02em;
@@ -465,9 +466,9 @@ a {
   text-wrap: balance;
 }
 
-/* 짧은 제목은 키워서 시각 무게를 맞춘다. */
+/* 짧은 제목은 한 단계 키워서 시각 무게를 맞춘다. */
 .album-art .title.short {
-  font-size: 46px;
+  font-size: 34px;
 }
 
 .album-art .artist {
@@ -523,19 +524,21 @@ a {
 /* 모바일 — 시안은 PC 전용이라, 2열 조판은 이전 모습 그대로 유지한다. */
 @media (max-width: 640px) {
   .album-feed {
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* 모바일 2열은 앨범 커버처럼 정사각형을 유지한다. */
+  /* 1열은 폭이 가변이라 고정 비율이 맞지 않는다(좁을수록 텍스트가 길어져
+     높이가 더 필요하다). 내용 높이에 맡기고 하한만 둔다. */
   .album-art {
-    aspect-ratio: 1;
+    aspect-ratio: auto;
+    min-height: 200px;
     padding: 22px;
   }
 
-  /* 시안 요소(워시·rule·한 줄 컨셉)와 호버 리프트는 좁은 카드에 과하다. */
+  /* 워시·rule은 좁은 화면에 과해서 유지 — 한 줄 컨셉만 되살린다. */
   .album-art::after,
-  .album-art .rule,
-  .album-art .hook {
+  .album-art .rule {
     display: none;
   }
 
@@ -555,6 +558,7 @@ a {
     letter-spacing: 0.08em;
   }
 
+  /* .short는 PC 전용 — 구체성이 높아 셀렉터에 포함해야 무효화된다. */
   .album-art .title,
   .album-art .title.short {
     font-family: var(--font-serif);
@@ -571,12 +575,12 @@ a {
     font-weight: 500;
   }
 
-  /* 좁은 카드에 맞춰 축소. 형태 라벨은 왼쪽이라 겹치지 않는다. */
+  /* 형태 라벨은 왼쪽이라 겹치지 않는다. */
   .album-art .play {
-    top: 18px;
-    right: 16px;
-    width: 28px;
-    height: 28px;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
   }
 
   /* 타이틀은 2줄까지만. 넘치면 둘째 줄 끝에 말줄임표. */
@@ -589,10 +593,11 @@ a {
   }
 }
 
-/* 2열 카드가 24px 타이틀을 감당하지 못하는 구간(약 442px 미만)부터 조판 축소. */
+/* 작은 화면 — 1열이라 폭은 넉넉하고 세로만 줄인다. */
 @media (max-width: 440px) {
   .album-art {
-    padding: 14px;
+    min-height: 190px;
+    padding: 18px;
   }
 
   .album-art .form {
@@ -601,20 +606,25 @@ a {
   }
 
   .album-art .play {
-    top: 12px;
-    right: 11px;
-    width: 24px;
-    height: 24px;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
   }
 
   .album-art .title,
   .album-art .title.short {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .album-art .artist {
     margin-top: 9px;
     font-size: 12px;
+  }
+
+  .album-art .hook {
+    margin-top: 12px;
+    font-size: 13px;
   }
 }
 
