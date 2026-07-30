@@ -408,8 +408,8 @@ a {
    아트워크가 없으므로 여백·조판 위계로 밀도를 만든다. */
 .album-art {
   position: relative;
-  /* 960px 컨테이너 기준 카드 444×313px — 4/3(333px)에서 20px 낮춘 값. */
-  aspect-ratio: 1.42;
+  /* 960px 컨테이너 기준 카드 444×298px. */
+  aspect-ratio: 1.49;
   border-radius: 10px;
   border: 1px solid var(--line);
   background: var(--bg-raised);
@@ -558,14 +558,11 @@ a {
     letter-spacing: 0.08em;
   }
 
-  /* .short는 PC 전용 — 구체성이 높아 셀렉터에 포함해야 무효화된다. */
+  /* 서체·굵기·자간은 PC 기본값(sans)을 그대로 쓰고 크기만 줄인다.
+     .short는 PC 전용 — 구체성이 높아 셀렉터에 포함해야 무효화된다. */
   .album-art .title,
   .album-art .title.short {
-    font-family: var(--font-serif);
     font-size: 24px;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
   }
 
   .album-art .artist {

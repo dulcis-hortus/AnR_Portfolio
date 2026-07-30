@@ -23,20 +23,20 @@ export const metadata: Metadata = {
 // concept-line과 일치하지 않는다.
 const ALBUM_FEED = [
   {
-    artist: '신인류',
-    form: 'EP',
-    album: '구름을 빌려줘',
-    href: '/artists/sinillyu/',
-    accent: '#1f5fa8', // 코발트 (대비 6.07:1, AA+)
-    hook: '지금 당장 주지 못해도 괜찮아',
-  },
-  {
     artist: '터치드',
     form: '정규 1집',
     album: '역광',
     href: '/artists/touched/',
     accent: TOUCHED_ACCENT, // 화상 엠버 — touched/data.ts
     hook: '빛을 쫓는 동안엔 어둠을 볼 수 없었다',
+  },
+  {
+    artist: '신인류',
+    form: 'EP',
+    album: '구름을 빌려줘',
+    href: '/artists/sinillyu/',
+    accent: '#1f5fa8', // 코발트 (대비 6.07:1, AA+)
+    hook: '지금 당장 주지 못해도 괜찮아',
   },
   {
     artist: '음율',

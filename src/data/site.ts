@@ -16,8 +16,8 @@ export const SITE = {
 
 // 네비 드롭다운은 산출물명(앨범 기획안) 기준으로 표기 (결정로그 v3.1)
 export const ARTISTS = [
-  { slug: 'sinillyu', name: '신인류', album: '신인류 — EP 《구름을 빌려줘》' },
   { slug: 'touched', name: '터치드', album: '터치드 — 정규 1집 《역광》' },
+  { slug: 'sinillyu', name: '신인류', album: '신인류 — EP 《구름을 빌려줘》' },
   {
     slug: 'eumyul',
     name: '음율',
