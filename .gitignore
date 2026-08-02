@@ -8,15 +8,34 @@
 # 내부 참조 문서 — 배포·공개 금지
 /_build-docs/
 
+# 에이전트 로컬 설정 — 전역 gitignore에만 있으면 다른 기기에서 커밋될 수 있음
+.claude/settings.local.json
+
 # misc
 .DS_Store
 *.pem
+*.log
 npm-debug.log*
+yarn-error.log*
+
+# 편집기·OS
+.vscode/
+.idea/
+Thumbs.db
+
+# 빌드 캐시
+/.turbo/
+/.vercel/
 
 # env & secrets — API 키 저장소에 올리지 말 것 (결정로그 §2)
 .env*
 config.yaml
 config.yml
+*.key
+*.p12
+secrets.json
+service-account*.json
+credentials*.json
 
 # typescript
 *.tsbuildinfo
