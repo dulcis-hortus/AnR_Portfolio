@@ -55,17 +55,16 @@ export default function Home() {
         <div className="container-wide">
           <p className="eyebrow">A&amp;R Portfolio</p>
           <h1>
-            데이터로 가설을 세우고,
+            앨범과 무대에서 방향을 읽고,
             <br />
-            현장에서 검증합니다
+            데이터로 시장을 확인합니다
           </h1>
           <p className="hero-sub">
-            유튜브 댓글 4만여 건에서 팬덤의 언어를 읽고, 공연장에서 그 가설을
-            직접 확인합니다. 관찰과 해석을 구분하고, 표본의 한계를 함께
+            유튜브 댓글 4만여 건에서 관찰과 해석을 구분하고, 표본의 한계를 함께
             공개합니다.
           </p>
           <p className="hero-story">
-            요구사항을 코드로 구현하던 프론트엔드 개발자 5년 — 이제 같은
+            데이터로 사용자 경험을 살피던 프론트엔드 개발자 5년 — 이제 같은
             정확함으로 아티스트와 팬 사이의 신호를 읽습니다.
           </p>
           <div className="numflow">
