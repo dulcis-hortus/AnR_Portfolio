@@ -55,7 +55,7 @@ export default function Home() {
         <div className="container-wide">
           <p className="eyebrow">A&amp;R Portfolio</p>
           <h1>
-            앨범과 무대에서 방향을 읽고,
+            앨범과 무대로 방향을 읽고,{' '}
             <br />
             데이터로 시장을 확인합니다
           </h1>
@@ -63,21 +63,10 @@ export default function Home() {
             유튜브 댓글 4만여 건에서 관찰과 해석을 구분하고, 표본의 한계를 함께
             공개합니다.
           </p>
-          <p className="hero-story">
-            데이터로 사용자 경험을 살피던 프론트엔드 개발자 5년 — 이제 같은
-            정확함으로 아티스트와 팬 사이의 신호를 읽습니다.
+          <p className="numflow">
+            유튜브 댓글 <strong>40,856</strong>건 수집 →{' '}
+            <strong>1,000</strong>건 수기 분류 (팀별 200건)
           </p>
-          <div className="numflow">
-            <span>
-              <strong>40,856</strong>건 수집
-            </span>
-            <span className="sep">→</span>
-            <span>
-              <strong>1,000</strong>건 직접 분류
-            </span>
-            <span className="sep">·</span>
-            <span>팀당 표본 200건</span>
-          </div>
           <p className="footnote" style={{ marginTop: 12 }}>
             AI 분류는 사전 등록한 기준으로 검증한 뒤, 미달로 탈락시켰습니다.{' '}
             <Link href="/method/#ai-validation">검증 과정 보기</Link>
