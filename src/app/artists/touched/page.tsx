@@ -131,7 +131,7 @@ export default function Touched() {
           데이터: 2026-06-12 수집 · 유입 판정: 2026-07
         </p>
         <a className="alb-diff" href="#order">
-          곡별 배치 근거 보기 — ④ 트랙과 서사 구성 ↓
+          ④ 트랙과 서사 구성 ↓
         </a>
       </div>
 
@@ -326,10 +326,10 @@ export default function Touched() {
               <tr key={t.no}>
                 <td>{t.no}</td>
                 <td>
-                  {t.wip ? <strong>{t.title}</strong> : t.title}
+                  {t.title}
                   {t.wip && <span className="alb-wip">가제</span>}
                 </td>
-                <td>{t.wip ? <strong>{t.arc}</strong> : t.arc}</td>
+                <td>{t.arc}</td>
               </tr>
             ))}
           </tbody>
