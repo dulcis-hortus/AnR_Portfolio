@@ -22,8 +22,8 @@ const TIMELINE = [
   },
   {
     period: '2024 – 2025',
-    role: '브런치 인디음악 칼럼',
-    detail: '곡 심층 분석, 브런치북 발간',
+    role: '인디음악 에세이 연재 · 브런치북 완결',
+    detail: '곡·앨범 해석 12편',
   },
   {
     period: '2020 – 2025',
@@ -45,10 +45,10 @@ const TIMELINE = [
 export default function About() {
   return (
     <>
-      <section className="hero">
+      <section className="hero" style={{ paddingBottom: 14 }}>
         <div className="container">
           <p className="eyebrow">About</p>
-          <h1>뮤지션 동행자에서 A&amp;R로</h1>
+          <h1 style={{ fontSize: 35 }}>뮤지션 동행자에서 A&amp;R로</h1>
         </div>
       </section>
 
@@ -74,7 +74,7 @@ export default function About() {
           </p>
           <p>
             제가 생각하는 A&amp;R은 아티스트를 시장과 연결하는 일입니다. 다만 그
-            연결은 아티스트를 무조건 시장에 맞추는 작업이 아닙니다. 노래가 뮤지션의
+            연결은 아티스트를 무조건 시장에 맞추는 방식이 아닙니다. 노래가 뮤지션의
             현재 모습을 앞질러 갈 때가 있습니다. 미처 정의되지 않은 마음과 가능성이
             그 안에 담겨 있곤 합니다. 그것을 미리 알아보고 더 많은 사람에게 닿을
             형태로 다듬는 일. 연결은 거기에서 시작한다고 생각합니다.
@@ -85,7 +85,7 @@ export default function About() {
       <section className="section">
         <div className="container">
           <p className="eyebrow">Timeline</p>
-          <h2 style={{ marginTop: 0 }}>경력</h2>
+          <h2 style={{ marginTop: 0 }}>이력</h2>
           <ul className="timeline">
             {TIMELINE.map((t) => (
               <li key={`${t.period}-${t.role}`}>

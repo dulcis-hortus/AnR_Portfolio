@@ -70,7 +70,7 @@ export default function Method() {
           {/* ── 섹션 1: 팬 유형 분석 (기존 1~6절) ── */}
           <div id="fan-type" style={{ marginBottom: 44 }}>
             <p className="eyebrow">Section 1</p>
-            <h2 style={{ fontSize: 30, marginTop: 0 }}>팬 유형 분석</h2>
+            <h2 style={{ marginTop: 0 }}>팬 유형 분석</h2>
             <p style={{ color: 'var(--ink-soft)', marginBottom: 0 }}>
               팬이 남긴 댓글이 어떤 관계의 언어인지 — 친구형/우상형으로
               분류하는 절차가 이 섹션의 중심입니다. 5팀의 결과는 그 절차가
@@ -427,7 +427,7 @@ export default function Method() {
       <section className="section" id="inflow">
         <div className="container">
           <p className="eyebrow">Section 2</p>
-          <h2 style={{ fontSize: 30, marginTop: 0 }}>유입 창 분석</h2>
+          <h2 style={{ marginTop: 0 }}>유입 창 분석</h2>
           <p>
             댓글에서 &lsquo;이 팀을 어떻게 알게 됐는지&rsquo;를 자발적으로
             밝힌 경우를 찾아, 유입 경로별로 분류했습니다. 판정 기준은 결과를

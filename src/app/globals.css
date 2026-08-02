@@ -54,6 +54,12 @@ h3 {
   letter-spacing: -0.01em;
 }
 
+/* 소제목 공통 크기. 브라우저 기본값(24px)보다 한 단계 키워 About 페이지
+   제목과 눈높이를 맞춘다. 앨범 페이지는 .alb-sec-title 등에서 자체 지정. */
+h2 {
+  font-size: 27px;
+}
+
 a {
   color: inherit;
 }
