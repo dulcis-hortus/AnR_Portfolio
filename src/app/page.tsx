@@ -64,12 +64,14 @@ export default function Home() {
             공개합니다.
           </p>
           <p className="numflow">
-            유튜브 댓글 <strong>40,856</strong>건 수집 →{' '}
-            <strong>1,000</strong>건 수기 분류 (팀별 200건)
+            유튜브 댓글 <strong>40,856</strong>건 수집{' '}
+            <br />→ <strong>1,000</strong>건 수기 분류 (팀별 200건)
           </p>
           <p className="footnote" style={{ marginTop: 12 }}>
             AI 분류는 사전 등록한 기준으로 검증한 뒤, 미달로 탈락시켰습니다.{' '}
-            <Link href="/method/#ai-validation">검증 과정 보기</Link>
+            <Link className="more-link" href="/method/#ai-validation">
+              검증 과정 보기 →
+            </Link>
           </p>
         </div>
       </section>

@@ -100,6 +100,14 @@ a {
   line-height: 1.6;
 }
 
+/* 문장 끝에 붙는 유도 링크 — 터치드 기획 페이지의 '라벨 →' 관용구를 따른다
+   (액센트 색 + 밑줄 유지). 화살표가 라벨과 떨어져 접히지 않도록 묶는다. */
+.more-link {
+  color: var(--accent);
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
 /* ── 네비게이션 ────────────────────────────────────────────── */
 .nav {
   border-bottom: 1px solid var(--line);
@@ -1032,6 +1040,18 @@ details.more .more-body strong {
   /* 본문 흐름에 28px 세리프 숫자가 섞이므로 행간을 넉넉히 준다. */
   line-height: 1.9;
   color: var(--ink-soft);
+}
+
+/* 데스크톱은 한 줄로 흐르고, 좁은 화면에서만 '수집' 뒤 화살표 앞에서 접는다.
+   개행이 숨겨졌을 때를 대비해 JSX에 공백을 명시해 뒀다. */
+.numflow br {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .numflow br {
+    display: inline;
+  }
 }
 
 /* 액센트 #b3591f는 오프화이트 지면 대비 4.54:1 — 28px는 라지 텍스트라
