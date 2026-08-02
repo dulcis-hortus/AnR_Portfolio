@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SITE } from '@/data/site';
+import { OG_IMAGE, SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '분석 방법',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: '분석 방법 — 정지영',
     description:
       '수집·표본 설계·라벨링 기준·AI 검증 결과까지 — 팬 댓글 분석의 절차와 한계 전면 공개.',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
 };
 

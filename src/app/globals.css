@@ -447,8 +447,16 @@ a {
     box-shadow 0.25s ease;
 }
 
+/* 액센트 바와 형태 라벨은 한 덩어리 — 내용 폭으로 줄어들어야 바 길이가
+   라벨(판본 표시 포함)에 맞는다. */
+.album-art .stamp {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
 .album-art .rule {
-  width: 34px;
+  width: 100%;
   height: 3px;
   margin-bottom: 12px;
   border-radius: 2px;
@@ -526,8 +534,9 @@ a {
   box-shadow: 0 10px 26px -14px rgba(26, 26, 26, 0.24);
 }
 
+/* 호버 시 라벨 폭을 조금 넘겨 늘어난다. */
 .album-card:hover .rule {
-  width: 56px;
+  width: calc(100% + 18px);
 }
 
 .album-card:focus-visible .album-art {

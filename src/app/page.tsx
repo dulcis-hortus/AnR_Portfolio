@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CIChart from '@/components/CIChart';
-import { SITE } from '@/data/site';
+import { OG_IMAGE, SITE } from '@/data/site';
 import { ALBUM_COLOR as TOUCHED_ACCENT } from '@/app/artists/touched/data';
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: SITE.title,
     description: SITE.description,
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
 };
 
@@ -21,6 +21,8 @@ export const metadata: Metadata = {
 // hook은 카드용 한 줄 카피. 터치드는 앨범 헤더 문안과 동일하고,
 // 신인류·음율은 지시에 따라 카드 전용으로 정한 문안이라 각 페이지의
 // concept-line과 일치하지 않는다.
+// ver는 기획안 판본 — 역광만 개정본(v2, 초판은 /artists/touched/v1/)이고
+// 나머지는 초판이다.
 const ALBUM_FEED = [
   {
     artist: '터치드',
@@ -28,6 +30,7 @@ const ALBUM_FEED = [
     album: '역광',
     href: '/artists/touched/',
     accent: TOUCHED_ACCENT, // 화상 엠버 — touched/data.ts
+    ver: 'v2',
     hook: '빛을 쫓는 동안엔 어둠을 볼 수 없었다',
   },
   {
@@ -36,14 +39,16 @@ const ALBUM_FEED = [
     album: '구름을 빌려줘',
     href: '/artists/sinillyu/',
     accent: '#1f5fa8', // 코발트 (대비 6.07:1, AA+)
+    ver: 'v1',
     hook: '지금 당장 주지 못해도 괜찮아',
   },
   {
     artist: '음율',
-    form: '정규 3집',
+    form: '정규 2집',
     album: '매순간 그냥 그러고 싶었어',
     href: '/artists/eumyul/',
     accent: '#2f5d4a', // 포레스트 (대비 7.11:1, AAA)
+    ver: 'v1',
     hook: '나에게 정직한 선택을 내려왔다는 것',
   },
 ];
@@ -70,7 +75,7 @@ export default function Home() {
           <p className="footnote" style={{ marginTop: 12 }}>
             AI 분류는 사전 등록한 기준으로 검증한 뒤, 미달로 탈락시켰습니다.{' '}
             <Link className="more-link" href="/method/#ai-validation">
-              검증 과정 보기 →
+              검증 과정 보기
             </Link>
           </p>
         </div>
@@ -94,8 +99,14 @@ export default function Home() {
                   className="album-art"
                   style={{ '--album': a.accent } as CSSProperties}
                 >
-                  <span className="rule" />
-                  <span className="form">{a.form}</span>
+                  {/* 액센트 바 + 형태 라벨. 판본은 라벨 뒤에 가운뎃점으로
+                      잇고 조판은 라벨과 동일하게 둔다. */}
+                  <div className="stamp">
+                    <span className="rule" />
+                    <span className="form">
+                      {a.form} · {a.ver}
+                    </span>
+                  </div>
                   {/* 여백을 채우는 재생 기호. */}
                   <svg
                     className="play"

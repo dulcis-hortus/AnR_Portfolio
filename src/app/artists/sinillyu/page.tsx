@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
-import { SITE } from '@/data/site';
+import { OG_IMAGE, SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '신인류 — EP 《구름을 빌려줘》 기획',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: '신인류 — EP 《구름을 빌려줘》 기획',
     description:
       '유튜브 댓글 표본 200건 분석과 공연 현장 관찰에 근거한 신인류 다음 앨범 기획.',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
 };
 

@@ -4,6 +4,7 @@ import AlbumHeader from '@/components/album/AlbumHeader';
 import Chip from '@/components/album/Chip';
 import '@/styles/album-system.css';
 import { ALBUM_COLOR, STRIP_FULL, STRIP_SHORT } from '../data';
+import { OG_IMAGE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '터치드 — 관찰 기록',
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     title: '터치드 — 관찰 기록',
     description:
       '터치드 공연 현장 관찰 로그. 데이터가 닿지 못하는 것을 기록한다.',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
 };
 

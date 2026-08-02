@@ -6,6 +6,7 @@ import AlbumSection from '@/components/album/AlbumSection';
 import Chip from '@/components/album/Chip';
 import SpecMatrix from '@/components/album/SpecMatrix';
 import '@/styles/album-system.css';
+import { OG_IMAGE } from '@/data/site';
 import {
   ALBUM_COLOR,
   DEEP_LINKS,
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: '터치드 — 정규 1집 《역광》',
     description:
       '터치드 정규 1집 가상 기획 《역광》(Contre-jour). 유입 전수 분석에 근거한 앨범 설계 — 비공식 가상 프로젝트.',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
 };
 

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import { SITE } from '@/data/site';
+import { OG_IMAGE, SITE } from '@/data/site';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: SITE.title,
     description: SITE.description,
     locale: 'ko_KR',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
   twitter: {
     card: 'summary_large_image',

@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
-import { SITE } from '@/data/site';
+import { OG_IMAGE, SITE } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: '음율 — 정규 3집 《매순간 그냥 그러고 싶었어》 기획',
+  title: '음율 — 정규 2집 《매순간 그냥 그러고 싶었어》 기획',
   description:
     '유튜브 댓글 표본 200건 분석에 근거한 음율 다음 정규 앨범 기획.',
   openGraph: {
-    title: '음율 — 정규 3집 《매순간 그냥 그러고 싶었어》 기획',
+    title: '음율 — 정규 2집 《매순간 그냥 그러고 싶었어》 기획',
     description:
       '유튜브 댓글 표본 200건 분석에 근거한 음율 다음 정규 앨범 기획.',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+    images: OG_IMAGE,
   },
 };
 
@@ -59,7 +59,7 @@ export default function Eumyul() {
             <div className="verdict-row">
               <span className="vk">다음 수</span>
               <span>
-                설명을 걷어내고 선택을 통과하는 정규 3집으로 가사 밀도 회복.
+                설명을 걷어내고 선택을 통과하는 정규 2집으로 가사 밀도 회복.
               </span>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function Eumyul() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <p className="section-num">① 앨범 기획</p>
-          <h2>정규 3집 《매순간 그냥 그러고 싶었어》</h2>
+          <h2>정규 2집 《매순간 그냥 그러고 싶었어》</h2>
           <p className="concept-line">
             나에게 정직해지는 선택을 매순간 내려왔다는 것을, 설명하지 않고
             그냥 그러고 싶었다는 말 한마디로 압축하는 앨범.

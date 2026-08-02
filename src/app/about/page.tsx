@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import { SITE } from '@/data/site';
+import { OG_IMAGE, SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    '프론트엔드 개발자 5년에서 데이터·현장 검증 A&R로. 전환 스토리와 경력.',
+    '뮤지션 동행자에서 A&R로. 아티스트를 시장과 연결하는 일에 대한 관점과 이력.',
   openGraph: {
     title: 'About — 정지영',
     description:
-      '프론트엔드 개발자 5년에서 데이터·현장 검증 A&R로. 전환 스토리와 경력.',
-    images: [{ url: '/og.png', width: 1200, height: 630 }],
+      '뮤지션 동행자에서 A&R로. 아티스트를 시장과 연결하는 일에 대한 관점과 이력.',
+    images: OG_IMAGE,
   },
 };
 
