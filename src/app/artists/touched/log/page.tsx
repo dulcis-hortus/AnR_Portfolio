@@ -4,7 +4,7 @@ import AlbumHeader from '@/components/album/AlbumHeader';
 import Chip from '@/components/album/Chip';
 import '@/styles/album-system.css';
 import { ALBUM_COLOR, STRIP_FULL, STRIP_SHORT } from '../data';
-import { OG_IMAGE } from '@/data/site';
+import { NOINDEX, OG_IMAGE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '터치드 — 관찰 기록',
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       '터치드 공연 현장 관찰 로그. 데이터가 닿지 못하는 것을 기록한다.',
     images: OG_IMAGE,
   },
+  robots: NOINDEX,
 };
 
 const ALBUM_VARS = { '--album': ALBUM_COLOR } as CSSProperties;

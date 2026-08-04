@@ -6,7 +6,7 @@ import AlbumSection from '@/components/album/AlbumSection';
 import Chip from '@/components/album/Chip';
 import SpecMatrix from '@/components/album/SpecMatrix';
 import '@/styles/album-system.css';
-import { OG_IMAGE } from '@/data/site';
+import { NOINDEX, OG_IMAGE } from '@/data/site';
 import {
   ALBUM_COLOR,
   DEEP_LINKS,
@@ -31,6 +31,7 @@ export const metadata: Metadata = {
       '터치드 정규 1집 가상 기획 《역광》(Contre-jour). 유입 전수 분석에 근거한 앨범 설계 — 비공식 가상 프로젝트.',
     images: OG_IMAGE,
   },
+  robots: NOINDEX,
 };
 
 // 앨범 인스턴스 값 주입 — 시스템 CSS는 --album 하나만 받는다.

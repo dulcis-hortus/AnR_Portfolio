@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
-import { OG_IMAGE, SITE } from '@/data/site';
+import { NOINDEX, OG_IMAGE, SITE } from '@/data/site';
 
 export const metadata: Metadata = {
   title: '음율 — 정규 2집 《매순간 그냥 그러고 싶었어》 기획',
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       '유튜브 댓글 표본 200건 분석에 근거한 음율 다음 정규 앨범 기획.',
     images: OG_IMAGE,
   },
+  robots: NOINDEX,
 };
 
 const T = report['팀별']['음율'];

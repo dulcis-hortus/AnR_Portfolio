@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import report from '@/data/aggregate_report.json';
-import { OG_IMAGE, SITE } from '@/data/site';
+import { NOINDEX, OG_IMAGE, SITE } from '@/data/site';
 import AlbumHeader from '@/components/album/AlbumHeader';
 import '@/styles/album-system.css';
 import { ALBUM_COLOR, STRIP_FULL, STRIP_SHORT } from '../data';
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       '터치드 《역광》 기획 초판(2026-06)의 보존본. 정본은 터치드 — 《역광》 본편.',
     images: OG_IMAGE,
   },
+  robots: NOINDEX,
 };
 
 const ALBUM_VARS = { '--album': ALBUM_COLOR } as CSSProperties;
