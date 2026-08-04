@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CIChart from '@/components/CIChart';
-import { OG_IMAGE, SITE } from '@/data/site';
+import { NOINDEX, OG_IMAGE, SITE } from '@/data/site';
 import { ALBUM_COLOR as TOUCHED_ACCENT } from '@/app/artists/touched/data';
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description: SITE.description,
     images: OG_IMAGE,
   },
+  robots: NOINDEX,
 };
 
 // 가상 앨범 피드 — 아트워크 대신 타이포 커버. 라이트 서피스에 앨범별 액센트를
