@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import Analytics from '@/components/Analytics';
 import { OG_IMAGE, SITE } from '@/data/site';
 import './globals.css';
 
@@ -32,6 +33,15 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* 방문 집계 로더 — 정적 HTML에 그대로 실려야 하이드레이션 전 이탈도
+            잡힌다. 경로 변경 집계는 <Analytics />가 맡는다. */}
+        {SITE.goatcounter && (
+          <script
+            data-goatcounter={`https://${SITE.goatcounter}.goatcounter.com/count`}
+            src="https://gc.zgo.at/count.js"
+            async
+          />
+        )}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -53,6 +63,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

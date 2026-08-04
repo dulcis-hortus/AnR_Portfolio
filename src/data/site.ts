@@ -10,6 +10,9 @@ export const SITE = {
   brunch: '',
   // public/resume.pdf 배치 후 '/resume.pdf'로 변경. 비워두면 링크 미노출.
   resumePdf: '',
+  // GoatCounter 사이트 코드(https://<코드>.goatcounter.com의 <코드> 부분).
+  // 비워두면 분석 스크립트 미삽입 — 방문 집계도 없음.
+  goatcounter: 'dulcis-hortus',
   disclaimer:
     '본 사이트의 분석은 공개 데이터에 기반한 비공식 분석이며, 아티스트·소속사와 무관합니다.',
 };
