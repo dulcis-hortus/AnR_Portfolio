@@ -57,10 +57,9 @@ export default function Touched() {
 
       {/* ═══ 층1 — 랜딩 (순서 고정) ═══════════════════════════ */}
       <section className="alb-hero">
-        <p className="alb-eyebrow">터치드 정규 1집 기획</p>
+        <p className="alb-eyebrow">터치드 정규 1집 가상 기획</p>
         <h1 className="alb-title">역광</h1>
         <p className="alb-subtitle">Contre-jour</p>
-        <p className="alb-concept">빛을 쫓는 동안엔 어둠을 볼 수 없었다</p>
       </section>
 
       <div className="alb-l1">
@@ -69,7 +68,7 @@ export default function Touched() {
             <span className="alb-vk">현재 단계</span>
             <span>
               라이브에서 팬이 시작되는 팀 — 유입 분석으로 확인된 가장 확실한
-              자산. 첫 정규 앨범은 한 번뿐인 서사적 이벤트.
+              자산.
             </span>
           </div>
           <div className="alb-verdict-row">
@@ -95,14 +94,14 @@ export default function Touched() {
             <span className="k">공식 채널 톱레벨 댓글 전수 분석</span>
           </div>
           <div className="alb-num">
-            <span className="v">14.8% vs 1.3%</span>
+            <span className="v">31.5%</span>
             <span className="k">
-              공연 유입 언급 — 비교군 대비, 95% CI 비겹침
+              공연 목격 유입 — 경로가 식별된 유입 중 최대 (재분류 후)
             </span>
           </div>
           <div className="alb-num">
-            <span className="v">12트랙</span>
-            <span className="k">미발매 8곡 + 제안 4곡(가제)</span>
+            <span className="v">신곡 4곡</span>
+            <span className="k">사양서까지 설계 · 미발매 8곡 포함 12트랙</span>
           </div>
         </div>
 
@@ -182,9 +181,9 @@ export default function Touched() {
           <li>
             <b>가사 세계관.</b>
             <p>
-              감정을 사물로 치환하되 그 치환을 문장 안에서 해설함. 이때
-              해설에는 직관적인 표현이 사용됨(증폭되는 갈등 → 눈덩이). 구원
-              서사에서 일방향 관계 구도가 반복됨(
+              감정을 사물로 치환하고, 그 치환의 의미를 같은 문장 안에서 풀어
+              설명하는 방식이 자주 사용됨. 구원 서사에서 일방향 관계 구도가
+              관찰됨(
               <a href="#catalog-gap">③ 컨셉과 근거</a>).
             </p>
           </li>
