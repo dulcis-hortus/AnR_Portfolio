@@ -714,13 +714,16 @@ body:has(.album-scope) {
   font-size: 13.5px;
 }
 
-.alb-none li a {
+/* 항목 리스트와 마무리 문단(.closing) 양쪽의 링크에 액센트를 준다 —
+   전역 a는 color: inherit이라 지정하지 않으면 본문과 구분되지 않는다. */
+.alb-none a {
   color: var(--album);
 }
 
+/* 리스트 항목이 아니라 산문 문단이므로 본문(.album-scope 15px)에 맞춘다. */
 .alb-none .closing {
   margin: 20px 0 0;
-  font-size: 14.5px;
+  font-size: 15px;
 }
 
 /* ── 부속 페이지: 보존본 배너 (/v1 등) ───────────────────────── */

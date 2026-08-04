@@ -142,8 +142,8 @@ export const LEDGER: {
   badge?: string;
   link?: { href: string; label: string };
 }[] = [
-  { name: '정체성 주제화' },
-  { name: '재발 배열' },
+  { name: '장르 정체성 주제화' },
+  { name: '일광화상 다음 트랙 Alone 배치' },
   {
     name: '빛 긍정 계열 제목 (silver lining · sunburst)',
     badge: 'sunburst → Track 1 재채용',

@@ -362,10 +362,6 @@ export default function Touched() {
           rows={SPEC_ROWS}
           defaultOpenKey="whiteout"
         />
-        <p className="alb-fn">
-          데모 반려 상세 기준은 기획안 문서 참고(
-          <a href="#not-here">이 사이트에 담지 않은 것</a>)
-        </p>
       </AlbumSection>
 
       {/* ⑥ 타이틀 전략과 퍼널 */}
@@ -532,20 +528,13 @@ export default function Touched() {
           <div className="alb-none" id="not-here">
             <p className="lbl">공개 범위</p>
             <h2>이 사이트에 담지 않은 것</h2>
-            <ul>
-              <li>
-                <b>유입 분석 원자료</b>
-                <span>
-                  판정 로그, 감사 데이터, 재현성 묶음 (
-                  <Link href="/method#inflow">분석 방법</Link>에 절차는
-                  공개됨)
-                </span>
-              </li>
-              <li>
-                <b>신곡 데모 평가 기준의 적용 사례</b>
-                <span>반려 기준을 실제 판정에 쓰는 프로세스</span>
-              </li>
-            </ul>
+            <p className="closing">
+              유입 분석 원자료는 사이트에 싣지 않았습니다(판정 로그, 감사
+              데이터, 재현성 묶음).
+              <br />
+              판정·감사 절차는{' '}
+              <Link href="/method#inflow">분석 방법</Link>에 공개되어 있습니다.
+            </p>
           </div>
         </div>
       </section>
