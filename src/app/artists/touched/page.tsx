@@ -91,7 +91,7 @@ export default function Touched() {
         <div className="alb-nums">
           <div className="alb-num">
             <span className="v">9,763건</span>
-            <span className="k">공식 채널 톱레벨 댓글 전수 분석</span>
+            <span className="k">공식 유튜브 채널 톱레벨 댓글 전수 분석</span>
           </div>
           <div className="alb-num">
             <span className="v">31.5%</span>
