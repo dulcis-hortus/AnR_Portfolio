@@ -24,7 +24,7 @@ export const SECTIONS: (AlbumNavSection & { title: string })[] = [
 // 부속 딥링크 — 헤더 '분석 방법'은 페이지 최상단으로(본문 맥락 링크만 #inflow 딥링크).
 export const DEEP_LINKS: AlbumDeepLink[] = [
   { href: '/method/', label: '분석 방법' },
-  { href: '/artists/touched/log/', label: '관찰 기록' },
+  // { href: '/artists/touched/log/', label: '관찰 기록' }, // 헤더 노출 보류 (페이지 자체는 /artists/touched/log/ 로 유지)
   { href: '/artists/touched/v1/', label: '기획 이력(v1)' },
 ];
 

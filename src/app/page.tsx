@@ -99,12 +99,12 @@ export default function Home() {
                   className="album-art"
                   style={{ '--album': a.accent } as CSSProperties}
                 >
-                  {/* 액센트 바 + 형태 라벨. 판본은 라벨 뒤에 가운뎃점으로
+                  {/* 액센트 바 + 형태 라벨. 판본은 라벨 뒤에 슬래시로
                       잇고 조판은 라벨과 동일하게 둔다. */}
                   <div className="stamp">
                     <span className="rule" />
                     <span className="form">
-                      {a.form} · {a.ver}
+                      {a.form} / {a.ver}
                     </span>
                   </div>
                   {/* 여백을 채우는 재생 기호. */}
