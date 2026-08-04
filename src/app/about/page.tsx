@@ -48,7 +48,7 @@ export default function About() {
       <section className="hero" style={{ paddingBottom: 14 }}>
         <div className="container">
           <p className="eyebrow">About</p>
-          <h1 style={{ fontSize: 35 }}>뮤지션 동행자에서 A&amp;R로</h1>
+          <h1>뮤지션 동행자에서 A&amp;R로</h1>
         </div>
       </section>
 
