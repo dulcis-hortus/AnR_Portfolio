@@ -129,11 +129,9 @@ export default function Touched() {
         </ol>
 
         <p className="alb-update">
-          데이터: 2026-06-12 수집 · 유입 판정: 2026-07
+          데이터: 2026-06-12 수집 · 유입 판정: 2026-07 · 미발매곡: 2026-07
+          공개분까지
         </p>
-        <a className="alb-diff" href="#order">
-          ④ 트랙과 서사 구성 ↓
-        </a>
       </div>
 
       {/* ═══ 층2 — 8섹션 (순서 고정) ═══════════════════════════ */}
@@ -325,7 +323,7 @@ export default function Touched() {
           </tbody>
         </table>
         <p className="alb-fn">
-          가제와 서사 국면은 본 기획의 제안 · 미발매 8곡 2026년 7월 기준.
+          가제와 서사 국면은 본 기획의 제안 · 미발매 8곡: 7월 공개분까지 반영.
         </p>
         <h3>서사 구성</h3>
         <p>
