@@ -100,8 +100,8 @@ export default function Touched() {
             </span>
           </div>
           <div className="alb-num">
-            <span className="v">신곡 4곡</span>
-            <span className="k">사양서까지 설계 · 미발매 8곡 포함 12트랙</span>
+            <span className="v">신곡 4곡 설계</span>
+            <span className="k">사양서 단계까지 · 미발매 8곡 포함 12트랙</span>
           </div>
         </div>
 
