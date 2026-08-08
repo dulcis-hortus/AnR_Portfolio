@@ -504,7 +504,7 @@ export default function Touched() {
           역광을 고집하면 비주얼이 전혀 보이지 않을 수 있고, 이는 신규 유입
           저하·기존 팬 충성도 하락으로 손실이 더 클 수 있다. 따라서{' '}
           <strong>서사적으로 반드시 필요한 곡에서만</strong> 역광을
-          채택한다(일광화상, Touched).
+          채택했다(일광화상, Touched).
         </p>
       </AlbumSection>
 
@@ -536,7 +536,10 @@ export default function Touched() {
               데이터, 재현성 묶음).
               <br />
               판정·감사 절차는{' '}
-              <Link href="/method#inflow">분석 방법</Link>에 공개되어 있습니다.
+              <Link href="/method#inflow">
+                <strong>분석 방법</strong>
+              </Link>
+              에 공개되어 있습니다.
             </p>
           </div>
         </div>
